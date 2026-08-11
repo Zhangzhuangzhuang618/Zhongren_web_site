@@ -1,0 +1,26 @@
+{
+    "name": "zhongren/moving-website",
+    "description": "众人搬家官网 - 广东众人搬家起重吊装有限公司",
+    "type": "project",
+    "require": {
+        "php": ">=7.3.0",
+        "ext-pdo": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "scripts": {
+        "test:geo-publish": [
+            "php tests/GeoNewsPublisherTest.php",
+            "php tests/GeoPublishHttpTest.php"
+        ]
+    }
+}
