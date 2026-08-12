@@ -1,0 +1,10 @@
+Zrbanjia content migration
+Run: 20260811-171129
+Source: https://www.zrbanjia.com
+Database: /Users/zhangzhuangzhuang/Desktop/projects/zhongren_guanwang/data/demo.sqlite
+Mode: write
+Discovered: articles=183, cases=25, products=19
+Actions: {"article:updated":183,"case:updated":25,"product:updated":19}
+Media: downloaded=0, existing=247, failed=0
+Failures: 0
+JSON log: /Users/zhangzhuangzhuang/Desktop/projects/zhongren_guanwang/migration_exports/zrbanjia-content-import-20260811-171129.json

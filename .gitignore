@@ -6,6 +6,9 @@
 /runtime/*
 !/runtime/.gitkeep
 
+# 内容迁移时生成的数据库备份与导入日志
+/migration_exports/
+
 # 可由 Composer 还原的依赖
 /vendor/
 
