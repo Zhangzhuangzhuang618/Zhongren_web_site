@@ -150,8 +150,10 @@ class App
     protected function matchRoute(string $path): ?array
     {
         foreach ($this->routes as $pattern => $handler) {
-            // 将路由模式转换为正则
-            $regex = '#^' . preg_replace('/:([^\/]+)/', '([^\/]+)', $pattern) . '$#';
+            // 将路由模式转换为正则。
+            // 冒号作为可选字面量留在捕获组外：`/about/:id` 匹配 `/about/13`，
+            // `/detail/news:id` 匹配 `/detail/news:1`，参数均为纯数字。
+            $regex = '#^' . preg_replace('/:([^\/]+)/', ':?([^/]+)', $pattern) . '$#';
             $regex = str_replace('/<id>', '/(\d+)', $regex);
 
             if (preg_match($regex, $path, $matches)) {
