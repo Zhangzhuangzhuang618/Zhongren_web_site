@@ -80,8 +80,7 @@ $(function() {
     // };
     // Color();
     
-    $('.evalu-list:eq(0)').show();
-    $('.Customer li').hover(function(event) {
+    $('.Customer li.case-tab').hover(function(event) {
         event.preventDefault();
         $(this).addClass('active').siblings().removeClass('active');
         var index = $(this).index();

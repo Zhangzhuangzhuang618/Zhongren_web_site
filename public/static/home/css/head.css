@@ -2551,24 +2551,30 @@ a.clients-left {
     width: 100%;
     position: relative;
     transition: 0.3s ease;
-    height: 377px;
+    height: auto;
     background: #fff
 }
 
 .evalu-list {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: static;
     width: 100%;
+    display: none;
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
 }
 
 .evalu-list.show {
+    display: block;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+}
+
+.evalu-list ul::after {
+    content: '';
+    display: block;
+    clear: both;
 }
 
 .more2 {

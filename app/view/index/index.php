@@ -163,7 +163,7 @@
             <div class="right Customer">
                 <ul id="index_case_tab">
                     <?php foreach ($caseTabs as $index => $tab): ?>
-                    <li class="<?= $index === 0 ? 'active' : '' ?>"><?= $tab['name'] ?></li>
+                    <li class="case-tab <?= $index === 0 ? 'active' : '' ?>"><?= $tab['name'] ?></li>
                     <?php endforeach; ?>
                     <li><a href="/cases.html">更多</a></li>
                 </ul>
@@ -173,7 +173,7 @@
         <div class="evalu clearfix mt20 boxsh">
             <div class="evalu-1" id="index_case_tab_item">
                 <?php foreach ($caseTabs as $tabIndex => $tab): ?>
-                <div class="evalu-list" style="<?= $tabIndex > 0 ? 'display:none' : '' ?>">
+                <div class="evalu-list">
                     <ul>
                         <?php foreach ($tab['list'] as $case): ?>
                         <li>
