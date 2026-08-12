@@ -7,16 +7,16 @@ $db = new PDO('sqlite:' . $dbFile);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $db->exec("CREATE TABLE zw_system_config (id INTEGER PRIMARY KEY, name TEXT, value TEXT, origin TEXT, `group` TEXT)");
-$db->exec("CREATE TABLE zw_cms_nav (id INTEGER PRIMARY KEY, title TEXT, url_model TEXT, pid INTEGER, states INTEGER DEFAULT 1, sort INTEGER DEFAULT 0, is_show INTEGER DEFAULT 1, link TEXT, seo_title TEXT, seo_keyword TEXT, seo_content TEXT, image TEXT, content TEXT)");
-$db->exec("CREATE TABLE zw_cms_product (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, subtitle TEXT, sketch TEXT, content TEXT, image TEXT, nav_id INTEGER, states INTEGER DEFAULT 1, sort INTEGER DEFAULT 0, is_hot INTEGER DEFAULT 0, browse INTEGER DEFAULT 0, create_time TEXT, link TEXT, target TEXT, seo_title TEXT, seo_keyword TEXT, seo_content TEXT)");
-$db->exec("CREATE TABLE zw_cms_article (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, subtitle TEXT, sketch TEXT, content TEXT, image TEXT, nav_id INTEGER, states INTEGER DEFAULT 1, sort INTEGER DEFAULT 0, browse INTEGER DEFAULT 0, create_time TEXT, seo_title TEXT, seo_keyword TEXT, seo_content TEXT, nav_pid INTEGER, delete_time TEXT)");
-$db->exec("CREATE TABLE zw_cms_cases (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, sketch TEXT, content TEXT, image TEXT, nav_id INTEGER, states INTEGER DEFAULT 1, sort INTEGER DEFAULT 0, create_time TEXT, seo_title TEXT, seo_keyword TEXT, seo_content TEXT)");
-$db->exec("CREATE TABLE zw_cms_banner (id INTEGER PRIMARY KEY, title TEXT, image TEXT, link TEXT, position TEXT DEFAULT 'home', states INTEGER DEFAULT 1, sort INTEGER DEFAULT 0)");
-$db->exec("CREATE TABLE zw_cms_message (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, phone TEXT, email TEXT, content TEXT, type TEXT, from_url TEXT, create_time TEXT, ip TEXT)");
-$db->exec("CREATE TABLE zw_cms_photo (id INTEGER PRIMARY KEY, title TEXT, image TEXT, sketch TEXT, nav_id INTEGER, states INTEGER DEFAULT 1, create_time TEXT)");
-$db->exec("CREATE TABLE zw_cms_expand (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, sketch TEXT, minimg TEXT, parent_id INTEGER, states INTEGER DEFAULT 1, sort INTEGER DEFAULT 0)");
-$db->exec("CREATE TABLE zw_cms_link (id INTEGER PRIMARY KEY, title TEXT, link TEXT, image TEXT, states INTEGER DEFAULT 1, sort INTEGER DEFAULT 0)");
-$db->exec("CREATE TABLE zw_cms_country (id INTEGER PRIMARY KEY, title TEXT, en_name TEXT, states INTEGER DEFAULT 1, sort INTEGER DEFAULT 0)");
+$db->exec("CREATE TABLE zw_cms_nav (id INTEGER PRIMARY KEY, title TEXT, url_model TEXT, pid INTEGER, states INTEGER DEFAULT 1, status INTEGER DEFAULT 1, state INTEGER DEFAULT 1, sort INTEGER DEFAULT 0, is_show INTEGER DEFAULT 1, link TEXT, seo_title TEXT, seo_keyword TEXT, seo_content TEXT, image TEXT, content TEXT)");
+$db->exec("CREATE TABLE zw_cms_product (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, subtitle TEXT, sketch TEXT, content TEXT, image TEXT, nav_id INTEGER, states INTEGER DEFAULT 1, status INTEGER DEFAULT 1, top_status INTEGER DEFAULT 0, sort INTEGER DEFAULT 0, is_hot INTEGER DEFAULT 0, browse INTEGER DEFAULT 0, create_time TEXT, update_time TEXT, link TEXT, target TEXT, seo_title TEXT, seo_keyword TEXT, seo_content TEXT)");
+$db->exec("CREATE TABLE zw_cms_article (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, subtitle TEXT, sketch TEXT, content TEXT, image TEXT, nav_id INTEGER, link TEXT, target TEXT, states INTEGER DEFAULT 1, status INTEGER DEFAULT 1, sort INTEGER DEFAULT 0, browse INTEGER DEFAULT 0, create_time TEXT, update_time TEXT, seo_title TEXT, seo_keyword TEXT, seo_content TEXT, nav_pid INTEGER, delete_time TEXT)");
+$db->exec("CREATE TABLE zw_cms_cases (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, sketch TEXT, content TEXT, image TEXT, nav_id INTEGER, states INTEGER DEFAULT 1, status INTEGER DEFAULT 1, state INTEGER DEFAULT 1, sort INTEGER DEFAULT 0, create_time TEXT, update_time TEXT, link TEXT, target TEXT, seo_title TEXT, seo_keyword TEXT, seo_content TEXT)");
+$db->exec("CREATE TABLE zw_cms_banner (id INTEGER PRIMARY KEY, title TEXT, image TEXT, link TEXT, url TEXT, class TEXT DEFAULT '电脑端Banner', position TEXT DEFAULT 'home', states INTEGER DEFAULT 1, status INTEGER DEFAULT 1, sort INTEGER DEFAULT 0, delete_time TEXT)");
+$db->exec("CREATE TABLE zw_cms_message (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, phone TEXT, email TEXT, content TEXT, type TEXT, from_url TEXT, create_time TEXT, ip TEXT, status INTEGER DEFAULT 0)");
+$db->exec("CREATE TABLE zw_cms_photo (id INTEGER PRIMARY KEY, title TEXT, image TEXT, sketch TEXT, nav_id INTEGER, states INTEGER DEFAULT 1, status INTEGER DEFAULT 1, create_time TEXT)");
+$db->exec("CREATE TABLE zw_cms_expand (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, sketch TEXT, minimg TEXT, parent_id INTEGER, pid INTEGER, states INTEGER DEFAULT 1, status INTEGER DEFAULT 1, sort INTEGER DEFAULT 0)");
+$db->exec("CREATE TABLE zw_cms_link (id INTEGER PRIMARY KEY, title TEXT, link TEXT, url TEXT, image TEXT, states INTEGER DEFAULT 1, status INTEGER DEFAULT 1, sort INTEGER DEFAULT 0)");
+$db->exec("CREATE TABLE zw_cms_country (id INTEGER PRIMARY KEY, title TEXT, en_name TEXT, states INTEGER DEFAULT 1, status INTEGER DEFAULT 1, sort INTEGER DEFAULT 0)");
 
 // 系统配置
 $configs = [
@@ -110,9 +110,9 @@ $reasons = [
     ['搬迁标准','搬家搬迁行业标准化，精细搬运，粗细归置','/upload/20250113/3ccb17a9b2ad332f104a74adb2ea315b.png'],
     ['服务保障','收费标准明码标价，不乱收费，不乱加价','/upload/20250113/7fb442ecf24de88fffc877f65fc8247d.png'],
 ];
-$stmt = $db->prepare("INSERT INTO zw_cms_expand (title,sketch,minimg,parent_id) VALUES (?,?,?,3)");
+$stmt = $db->prepare("INSERT INTO zw_cms_expand (title,sketch,minimg,pid) VALUES (?,?,?,3)");
 foreach ($reasons as $r) $stmt->execute($r);
-$db->exec("INSERT INTO zw_cms_expand (title,sketch,parent_id) VALUES ('服务热线','18148943200',2)");
+$db->exec("INSERT INTO zw_cms_expand (title,sketch,pid) VALUES ('服务热线','18148943200',2)");
 
 // Banner
 $stmt = $db->prepare("INSERT INTO zw_cms_banner (title,image,position,states,sort) VALUES (?,?,'home',1,?)");
