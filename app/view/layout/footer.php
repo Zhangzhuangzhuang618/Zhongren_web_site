@@ -30,9 +30,17 @@
             </div>
             <div class="n-footer-con clearfix center">
                 <div class="footer-slide">
-                    <?php foreach ($city_list as $city): ?>
-                    <a href="https://<?= $city['en_mark'] ?>.zrbanjia.com"><?= $city['mark'] ?>搬家</a>
-                    <?php endforeach; ?>
+                    <a href="https://tianhe.zrbanjia.com/">天河搬家</a>
+                    <a href="https://haizhu.zrbanjia.com/">海珠搬家</a>
+                    <a href="https://baiyun.zrbanjia.com/">白云搬家</a>
+                    <a href="https://panyu.zrbanjia.com/">番禺搬家</a>
+                    <a href="https://yuexiu.zrbanjia.com/">越秀搬家</a>
+                    <a href="https://liwan.zrbanjia.com/">荔湾搬家</a>
+                    <a href="https://huangpu.zrbanjia.com/">黄埔搬家</a>
+                    <a href="https://huadu.zrbanjia.com/">花都搬家</a>
+                    <a href="https://zengcheng.zrbanjia.com/">增城搬家</a>
+                    <a href="https://nansha.zrbanjia.com/">南沙搬家</a>
+                    <a href="https://conghua.zrbanjia.com/">从化搬家</a>
                 </div>
                 <div class="footer-slide">
                     <?php foreach ($footer_services as $service): ?>
