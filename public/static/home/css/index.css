@@ -102,6 +102,45 @@
     margin-bottom: 15px
 }
 
+.about-recognition {
+    display: flex;
+    margin-top: 20px;
+    border: 1px solid #ececec;
+    background: #fafafa
+}
+
+.about-recognition a {
+    width: 50%;
+    padding: 16px 20px;
+    text-align: center;
+    border-right: 1px solid #ececec;
+    transition: all .25s ease
+}
+
+.about-recognition a:last-child {
+    border-right: none
+}
+
+.about-recognition a:hover {
+    color: #e53025;
+    background: #fff
+}
+
+.about-recognition strong,
+.about-recognition span {
+    display: block
+}
+
+.about-recognition strong {
+    font-size: 15px;
+    margin-bottom: 5px
+}
+
+.about-recognition span {
+    color: #888;
+    font-size: 13px
+}
+
 /**/
 .about-nav {
     background: #fff;
@@ -360,6 +399,18 @@ em {
 
 
 @media screen and (max-width:1200px) {
+    .about-recognition {
+        display: block
+    }
+    .about-recognition a {
+        display: block;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ececec
+    }
+    .about-recognition a:last-child {
+        border-bottom: none
+    }
     .swiide{
         display: flex;
         justify-content: space-between;
