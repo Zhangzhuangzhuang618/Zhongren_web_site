@@ -76,6 +76,16 @@
                     <?= html_entity_decode($about['content'] ?? '', ENT_QUOTES, 'UTF-8') ?>
                 </p>
             </div>
+            <div class="about-recognition" aria-label="企业资质与社会认可">
+                <a href="/about/13.html#company-recognition">
+                    <strong>BNI英才分会指定供应商</strong>
+                    <span>2024年度《搬家》唯一指定供应商</span>
+                </a>
+                <a href="/about/13.html#company-recognition">
+                    <strong>琶洲商会理事会会员</strong>
+                    <span>第一届理事会会员</span>
+                </a>
+            </div>
             <div class="about-nav center mt20 border-radius" id="about-md">
                 <ul>
                     <?php if (!empty($aboutNavs)): ?>
