@@ -9,13 +9,13 @@
         </div>
         <div class="about-container pd50 center mt20 border-radius-5 fs-14">
             <div class="clearfix">
-                <?php if (($page['id'] ?? 0) === 13): ?>
+                <?php if ((int) ($page['id'] ?? 0) === 13): ?>
                 <div class="fs-24 text-center"><p class="a-title">众人搬家连锁品牌</p></div>
                 <?php endif; ?>
                 <div class="line-h-2"><?= html_entity_decode($page['content'] ?? '') ?></div>
             </div>
 
-            <?php if (($page['id'] ?? 0) === 13): ?>
+            <?php if ((int) ($page['id'] ?? 0) === 13): ?>
             <section class="company-recognition" id="company-recognition" aria-labelledby="company-recognition-title">
                 <div class="company-recognition-heading">
                     <h2 id="company-recognition-title">企业资质与社会认可</h2>
