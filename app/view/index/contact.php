@@ -49,9 +49,7 @@
                     </p>
                 </div>
                 <div class="img ">
-                    <?php if ($contact['image'] ?? ''): ?>
-                    <img src="<?= $contact['image'] ?>" class=" block" alt="">
-                    <?php endif; ?>
+                    <img src="<?= htmlspecialchars($assetUrl('/upload/brand/zhongren-fleet-lineup.jpg'), ENT_QUOTES, 'UTF-8') ?>" class="block" alt="众人搬家车队与服务团队展示" width="1494" height="1052" style="width:100%;height:auto;object-fit:contain">
                 </div>
             </div>
         </div>
