@@ -67,7 +67,7 @@
     <div class="wow fadeInUp" data-wow-delay="0.1s">
         <div class="title-top clearfix mt30">
             <h2 id="about-title">关于众人 <span>About ZhongRen</span></h2>
-            <p class="more"><a href="/about.html">查看更多<span>›</span></a></p>
+            <p class="more"><a href="/about/13.html">查看更多<span>›</span></a></p>
         </div>
         <div class="about clearfix mt20 boxsh">
             <div class="top-text clearfix">
@@ -93,7 +93,7 @@
                     <a href="/about/<?= $aboutItem['id'] ?>.html" target="_self">
                         <li>
                             <p><i class="icon" style="background-image: url(<?= $aboutItem['icon'] ?? '' ?>)"></i></p>
-                            <p class="mt10 fs-14"><?= $aboutItem['title'] ?></p>
+                            <p class="mt10 fs-14"><?= (int) $aboutItem['id'] === 13 ? '资质与安全保障' : $aboutItem['title'] ?></p>
                         </li>
                     </a>
                     <?php endforeach; ?>

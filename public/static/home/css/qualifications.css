@@ -1,0 +1,86 @@
+.qualification-page{color:#333;background:#fff}
+.qualification-page *{box-sizing:border-box}
+.qualification-intro{padding:56px 0 32px}
+.qualification-eyebrow{font-size:14px;letter-spacing:.1em;color:#b2392b;margin-bottom:12px}
+.qualification-intro h1{font-size:38px;line-height:1.3;margin:0 0 18px;font-weight:600}
+.qualification-intro>p:last-child{max-width:880px;font-size:16px;line-height:1.9;color:#60656b}
+.qualification-jump{display:flex;flex-wrap:wrap;gap:12px;padding:0 0 36px;border-bottom:1px solid #e8e8e8}
+.qualification-jump a{display:inline-block;padding:10px 17px;border:1px solid #e5e5e5;border-radius:4px;font-size:14px;line-height:1.4;color:#52565b;transition:color .2s,border-color .2s,background .2s}
+.qualification-jump a:hover,.qualification-jump a:focus-visible{border-color:#d34d3d;background:#fff6f4;color:#b83224}
+.qualification-section{padding-top:62px;padding-bottom:68px;scroll-margin-top:90px}
+.qualification-section-tint{background:#f7f8f9}
+.qualification-heading{margin-bottom:26px}
+.qualification-heading>span{font-size:14px;color:#bc3c30;letter-spacing:.06em}
+.qualification-heading h2{font-size:27px;line-height:1.4;font-weight:600;margin:7px 0 10px}
+.qualification-heading p{max-width:960px;color:#666;line-height:1.85;font-size:15px}
+.qualification-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.qualification-grid-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.qualification-card{min-width:0;margin:0;border:1px solid #e7e7e7;border-radius:7px;background:#fff;overflow:hidden;box-shadow:0 8px 24px rgba(24,28,32,.04)}
+.qualification-image{display:block;position:relative;background:#f2f3f4;text-align:center;padding:15px;height:300px}
+.qualification-image img{display:block;width:100%;height:100%;object-fit:contain}
+.qualification-image>span{position:absolute;right:15px;bottom:13px;border-radius:3px;background:rgba(35,39,43,.78);color:#fff;padding:5px 9px;font-size:12px}
+.qualification-image-portrait{height:330px}
+.qualification-image-award{height:310px}
+.qualification-card-body{padding:22px 23px 25px}
+.qualification-card-body h3{font-size:19px;line-height:1.45;font-weight:600;margin:0 0 10px}
+.qualification-card-body p{font-size:14px;line-height:1.75;color:#646970;margin:0 0 12px}
+.qualification-card-body dl{margin:0;border-top:1px solid #ececec;padding-top:10px}
+.qualification-card-body dl>div{display:grid;grid-template-columns:104px minmax(0,1fr);gap:8px;padding-top:8px;line-height:1.55;font-size:13px}
+.qualification-card-body dt{color:#7a7f84}
+.qualification-card-body dd{margin:0;color:#3e4247;overflow-wrap:anywhere}
+.qualification-grid-two .qualification-card-body p{margin-bottom:0}
+.qualification-checks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;list-style:none;padding:0;margin:0;counter-reset:check}
+.qualification-checks li{counter-increment:check;padding:24px;border:1px solid #e6e7e9;border-radius:6px;background:#fff}
+.qualification-checks li:before{content:'0' counter(check);display:block;color:#c34335;font-size:15px;margin-bottom:17px}
+.qualification-checks strong{display:block;font-size:17px;margin-bottom:9px}
+.qualification-checks p{font-size:14px;color:#646970;line-height:1.85;margin:0}
+.qualification-note{font-size:13px;line-height:1.8;color:#7b8085;margin:22px 0 0}
+.qualification-profile-content{font-size:15px;line-height:1.95;color:#5c6065;max-width:920px}
+.qualification-profile-content p{margin:0 0 12px}
+.qualification-contact{display:inline-flex;align-items:center;gap:12px;margin-top:15px;color:#b83224;font-size:15px}
+.qualification-contact:hover{text-decoration:underline}
+.employee-insurance-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:32px;align-items:start}
+.employee-insurance-image{height:410px}
+.employee-insurance-summary{padding:24px 28px;border:1px solid #e6e7e9;border-radius:7px}
+.employee-insurance-summary h3{font-size:21px;margin:0 0 16px;font-weight:600}
+.employee-insurance-summary dl{margin:0}
+.employee-insurance-summary dl>div{display:grid;grid-template-columns:145px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid #ececec;font-size:15px;line-height:1.7}
+.employee-insurance-summary dt{color:#71767c}
+.employee-insurance-summary dd{margin:0;color:#333;overflow-wrap:anywhere}
+.safety-policy-chapter{border:1px solid #e6e7e9;border-radius:6px;margin:12px 0;overflow:hidden}
+.safety-policy-chapter summary{cursor:pointer;padding:20px 24px;background:#f7f8f9;color:#333}
+.safety-policy-chapter summary h3{display:inline;font-size:18px;line-height:1.6;font-weight:600;margin:0}
+.safety-policy-chapter summary:focus-visible{outline:2px solid #b83224;outline-offset:-3px}
+.safety-policy-chapter[open] summary{border-bottom:1px solid #e6e7e9;color:#b83224}
+.safety-policy-body{padding:8px 28px 24px;font-size:15px;line-height:1.95;color:#50555b;overflow-wrap:break-word}
+.safety-policy-body h4{font-size:16px;margin:22px 0 8px;color:#333;font-weight:600}
+.safety-policy-body p{margin:12px 0}
+.safety-policy-body ol{list-style:decimal;padding-left:1.8em;margin:8px 0}
+.safety-policy-body li{list-style:decimal;margin:8px 0;padding-left:3px}
+.safety-policy-signature{text-align:right;font-size:15px;line-height:1.9;margin-top:24px;color:#50555b}
+@media(max-width:900px){
+    .qualification-intro{padding-top:40px}
+    .qualification-intro h1{font-size:31px}
+    .qualification-grid,.qualification-checks{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .qualification-section{padding-top:46px;padding-bottom:50px}
+}
+@media(max-width:640px){
+    .employee-insurance-layout{grid-template-columns:1fr;gap:20px}
+    .employee-insurance-summary{padding:20px}
+    .employee-insurance-summary dl>div{grid-template-columns:112px minmax(0,1fr);font-size:14px;gap:8px}
+    .qualification-image.employee-insurance-image{height:340px}
+    .safety-policy-chapter summary{padding:16px}
+    .safety-policy-chapter summary h3{font-size:16px}
+    .safety-policy-body{padding:4px 16px 18px;font-size:14px}
+    .qualification-intro{padding-top:28px}
+    .qualification-intro h1{font-size:27px}
+    .qualification-intro>p:last-child{font-size:14px}
+    .qualification-jump{gap:8px;padding-bottom:24px}
+    .qualification-jump a{padding:8px 11px;font-size:13px}
+    .qualification-grid,.qualification-grid-two,.qualification-checks{grid-template-columns:1fr}
+    .qualification-heading h2{font-size:23px}
+    .qualification-heading p{font-size:14px}
+    .qualification-image,.qualification-image-portrait,.qualification-image-award{height:265px}
+    .qualification-card-body{padding:19px}
+    .qualification-section{scroll-margin-top:70px}
+}

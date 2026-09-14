@@ -39,7 +39,9 @@ $headerMenu = [
     ['key' => 'valuables', 'title' => '贵重物品搬运', 'href' => $productHref(16), 'children' => [
         ['title' => '钢琴搬运', 'href' => $productHref(16)], ['title' => '设备搬迁', 'href' => $productHref(4)], ['title' => '艺术品搬运', 'href' => $productHref(20)],
     ]],
-    ['key' => 'about', 'title' => '关于众人', 'href' => $navHref(5)],
+    ['key' => 'about', 'title' => '资质与安全保障', 'href' => '/about/13.html'],
+    ['key' => 'pricing', 'title' => '报价说明', 'href' => '/pricing.html'],
+    ['key' => 'faq', 'title' => '常见问题', 'href' => '/faq.html'],
     ['key' => 'cases', 'title' => '服务案例', 'href' => $navHref(6)],
     ['key' => 'news', 'title' => '新闻资讯', 'href' => $navHref(7)],
     ['key' => 'contact', 'title' => '联系众人', 'href' => $navHref(8)],
@@ -59,6 +61,10 @@ if (preg_match('#^/products/(2|3|4)\.html$#', $headerPath)) {
     $activeHeaderKey = 'cases';
 } elseif (str_starts_with($headerPath, '/news') || str_starts_with($headerPath, '/detail/news')) {
     $activeHeaderKey = 'news';
+} elseif (str_starts_with($headerPath, '/pricing')) {
+    $activeHeaderKey = 'pricing';
+} elseif (str_starts_with($headerPath, '/faq')) {
+    $activeHeaderKey = 'faq';
 } elseif (str_starts_with($headerPath, '/contact')) {
     $activeHeaderKey = 'contact';
 }

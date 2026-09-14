@@ -19,8 +19,8 @@ class Faq extends BaseController
             'faqs' => $faqs,
             'p_active' => 6,
             'canonical_url' => $this->siteUrl('/faq.html'),
-            'page_title' => '广州搬家常见问题｜费用、流程、打包与搬运指南 - 众人搬家',
-            'page_description' => '广州搬家常见问题解答，涵盖费用构成、预约、打包、家具拆装、同城和跨市搬家、办公室及设备搬迁等实用信息。',
+            'page_title' => '搬家常见问题 FAQ｜吊装安全、损坏处理、当天预约与收费 - 众人搬家',
+            'page_description' => '众人搬家FAQ集中解答吊装风险防护、物品损坏处理、当天上门预约、居民搬家套餐、免费勘测、合同锁价及搬前准备等常见问题。',
             'page_keywords' => '广州搬家常见问题,广州搬家费用,搬家流程,搬家打包,搬家公司选择',
             'structured_data' => array_merge([[
                 '@context' => 'https://schema.org',

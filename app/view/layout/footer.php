@@ -55,7 +55,7 @@
                     <?php foreach ($foot_nav as $item): ?>
                     <li><a href="<?= $item['href'] ?: '/' . $item['url_model'] . '/' . $item['id'] . '.html' ?>"><?= $item['title'] ?></a></li>
                     <?php endforeach; ?>
-                    <li><a href="/faq.html">搬家常见问题</a></li>
+                    <li><a href="/faq.html">常见问题 FAQ</a></li>
                 </ul>
                 <p class="beian">Copyright &copy; 2025 <?= $site['name'] ?> 版权所有
                     <a target="_blank" href="http://beian.miit.gov.cn/"><?= $site['icp'] ?></a>

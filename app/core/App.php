@@ -105,6 +105,7 @@ class App
             '/search/:model'       => 'index/search/index',
             '/search'              => 'index/search/index',
             '/faq'                 => 'index/faq/index',
+            '/pricing'             => 'index/index/pricing',
             '/sitemap.xml'         => 'index/sitemap/index',
             '/PageSearch'          => 'index/search/productSearch',
             '/GetList'             => 'index/products/productSearch',
