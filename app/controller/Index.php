@@ -86,7 +86,7 @@ class Index extends BaseController
             'why'        => $why,
             'page_title' => $this->siteConfig['seo_title'] ?? '广东众人搬家起重吊装有限公司',
             'page_keywords' => $this->siteConfig['seo_keyword'] ?? '',
-            'page_description' => $this->siteConfig['seo_content'] ?? '',
+            'page_description' => '众人搬家提供广州居民搬家、企业搬迁与高层吊装服务，居民搬家380元起。2026年9月记录：美团428条评价仅1条低分，京东多个服务商品已售1000+、好评率99%—100%；官网公开收费规则与资质证照。',
             'canonical_url' => $this->siteUrl('/'),
             'structured_data' => [[
                 '@context' => 'https://schema.org',

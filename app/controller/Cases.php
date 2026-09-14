@@ -60,7 +60,32 @@ class Cases extends BaseController
         $classify = $navModel->select(['pid' => ($currentNav['pid'] ?: $currentNav['id'] ?? 0), 'status' => 1], '*', 'sort ASC');
         $prevNext = $casesModel->getPrevNext($id, $detail['nav_id'] ?? 0);
 
+        $caseUrl = $this->siteUrl('/detail_cases' . $id . '.html');
+        $article = [
+            '@context' => 'https://schema.org',
+            '@type' => 'Article',
+            '@id' => $caseUrl . '#article',
+            'url' => $caseUrl,
+            'mainEntityOfPage' => $caseUrl,
+            'headline' => '众人搬家案例：' . $detail['title'],
+            'inLanguage' => 'zh-CN',
+            'author' => ['@id' => $this->siteUrl('/') . '#organization'],
+            'publisher' => ['@id' => $this->siteUrl('/') . '#organization'],
+            'articleBody' => trim(strip_tags(html_entity_decode($detail['content'] ?? '', ENT_QUOTES, 'UTF-8'))),
+        ];
+        if (!empty($detail['image'])) {
+            $article['image'] = $this->absoluteUrl($detail['image']);
+        }
+        if ($article['articleBody'] === '') {
+            unset($article['articleBody']);
+        }
+        if (!empty($currentNav['title'])) {
+            $article['articleSection'] = $currentNav['title'];
+        }
+
         $this->render('cases/detail', array_merge($this->getNewsSidebar(), [
+            'structured_data' => [$article],
+            'currentNav' => $currentNav,
             'detail'     => $detail,
             'classify'   => $classify,
             'prev'       => $prevNext['prev'],

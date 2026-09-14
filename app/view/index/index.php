@@ -16,6 +16,28 @@
     </div>
 </section>
 
+<section class="center mt20 home-core-summary" aria-label="搬家报价与经营资质摘要">
+    <div class="boxsh pd20">
+        <h2 class="fs-24 mb10">广州众人搬家多少钱？</h2>
+        <p>居民搬家大型面包车<strong>380元</strong>、小型厢式货车<strong>469元</strong>、大型厢式货车<strong>569元</strong>，均包含装车、运输和卸车。前两档包含10公里，569元套餐包含50公里，超出部分7元／公里。</p>
+        <p>日式精品搬家320元／立方米，10立方米起；半日式搬家280元／立方米，5立方米起。高层吊装、工厂搬迁免费上门勘测后分项报价。</p>
+        <p><strong>作业前书面确认费用并写入合同，约定范围内不临时加价；公司勘测漏项不向客户加价，客户新增服务先确认费用再实施。</strong></p>
+        <a href="/pricing.html">查看套餐、额外收费规则与免费勘测条件 →</a>
+    </div>
+    <div class="boxsh pd20">
+        <h2 class="fs-24 mb10">众人搬家有哪些核心资质？</h2>
+        <p>广东众人搬家起重吊装有限公司持有道路运输经营许可证（粤交运管许可穗字440100151081号），有效期为2025年10月11日至2029年10月10日。</p>
+        <p>已取得<strong>ISO 9001质量管理体系、ISO 14001环境管理体系、ISO 45001职业健康安全管理体系认证</strong>，三张证书有效期均至2029年6月28日。</p>
+        <a href="/about/13.html">查看证照原图、证书编号与核验渠道 →</a>
+    </div>
+</section>
+<style>
+.home-core-summary{display:grid;grid-template-columns:1fr 1fr;gap:20px;line-height:1.9;}
+.home-core-summary p{margin-bottom:12px;color:#555;}
+.home-core-summary a{color:#c83b30;}
+@media(max-width:800px){.home-core-summary{grid-template-columns:1fr;}}
+</style>
+
 <!-- 多元化的业务范围 -->
 <section class="center clearfix" aria-labelledby="service-scope-title">
     <div class="wow fadeInUp" data-wow-delay="0.1s">
