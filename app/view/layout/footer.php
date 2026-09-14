@@ -44,6 +44,26 @@
                 </div>
             </div>
         </div>
+        <section class="center douyin-entry" aria-labelledby="douyin-title">
+            <a href="/upload/brand/zhongren-douyin-qr.jpg" target="_blank" rel="noopener" aria-label="放大查看众人搬家抖音二维码">
+                <img src="/upload/brand/zhongren-douyin-qr.jpg" width="1125" height="1680" loading="lazy" alt="广东众人搬家起重吊装有限公司抖音二维码，抖音号77488260985">
+            </a>
+            <div>
+                <h2 id="douyin-title">关注众人搬家官方抖音</h2>
+                <p>广东众人搬家起重吊装有限公司</p>
+                <p>抖音号：77488260985</p>
+                <p>打开抖音扫一扫，或保存二维码后在抖音中识别。</p>
+                <a class="douyin-profile-link" href="https://v.douyin.com/hIRoU80ywdE/" target="_blank" rel="noopener">进入众人搬家抖音主页 →</a>
+            </div>
+        </section>
+        <style>
+        .douyin-entry{display:flex;align-items:center;gap:28px;padding-top:24px;padding-bottom:24px;color:#ccc;border-top:1px solid #383838;}
+        .douyin-entry img{display:block;width:160px;height:auto;max-width:none;}
+        .douyin-entry h2{font-size:22px;color:#fff;margin-bottom:12px;}
+        .douyin-entry p{line-height:1.9;}
+        .douyin-entry .douyin-profile-link{display:inline-block;margin-top:12px;color:#fff;text-decoration:underline;}
+        @media(max-width:600px){.douyin-entry{flex-direction:column;align-items:flex-start;gap:16px;}.douyin-entry img{width:180px;}}
+        </style>
         <div class="n-footer-bottom center clearfix">
             <div class="n-footer-left">
                 <ul class="n-footer-nav clearfix">
