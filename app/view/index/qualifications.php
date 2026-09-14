@@ -243,8 +243,7 @@ $managementCards = [
 
     <section class="qualification-section center qualification-profile" id="company-profile" aria-labelledby="company-profile-title">
         <div class="qualification-heading"><span>关于众人</span><h2 id="company-profile-title">公司简介</h2></div>
-        <div class="qualification-profile-content"><?= html_entity_decode($page['content'] ?? '', ENT_QUOTES, 'UTF-8') ?></div>
-        <p>公司持有第39类图形注册商标（注册号85755452），核定服务包括搬运、运输、搬家货车运输等。<a href="#registered-trademark">查看品牌商标注册信息 →</a></p>
+        <div class="qualification-profile-content"><?php include VIEW_PATH . 'layout/company_profile.php'; ?></div>
         <a class="qualification-contact" href="/contact/8.html">联系众人咨询搬家服务 <span aria-hidden="true">→</span></a>
     </section>
 </div>

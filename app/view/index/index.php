@@ -78,9 +78,11 @@
         </div>
         <div class="about clearfix mt20 boxsh">
             <div class="top-text clearfix">
-                <h3><?= $about['sketch'] ?? '提供更加优质、高效、安全的搬家搬厂搬设备等一切搬运服务' ?></h3>
+                <h3>立足广州天河，服务广州及珠三角的搬迁吊装综合服务商</h3>
                 <p class="c888 fs-13 l-s-1">
-                    <?= html_entity_decode($about['content'] ?? '', ENT_QUOTES, 'UTF-8') ?>
+                    <p>广东众人搬家起重吊装有限公司成立于2019年10月29日，注册资本1000万元，提供居民搬家、日式打包收纳、企业厂房搬迁、精密仪器搬运及高层吊装等服务，覆盖广州11个区及珠三角地区。</p>
+                    <p>公司持有道路运输经营许可证、ISO三体系认证及第39类图形注册商标，获评2024年度中国BNI英才分会《搬家》唯一指定供应商，并为琶洲商会第一届理事会会员。</p>
+                    <p>作业前书面确认方案与费用，约定范围内不临时加价。<a href="/about/13.html#company-profile">查看完整公司简介与服务保障 →</a></p>
                 </p>
             </div>
             <div class="about-recognition" aria-label="企业资质与社会认可">

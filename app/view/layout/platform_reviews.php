@@ -1,6 +1,6 @@
 <section class="center platform-reviews" aria-labelledby="platform-reviews-title">
     <h2 id="platform-reviews-title">第三方平台客户评价</h2>
-    <p class="review-intro">好口碑，来自客户的搬家体验。准时上门、搬运专业、打包细致、收费清晰，是客户反馈中反复出现的认可。</p>
+    <p class="review-intro">众人搬家在美团、淘宝、京东平台设有店铺，差评比例较低：美团428条评价仅1条低分，淘宝历史评价仅1条差评，京东多个服务商品已售1000+、对应商品好评率99%—100%。客户可通过下方截图和店铺查询方式查看具体反馈。</p>
     <div class="platform-review-grid">
         <article>
             <h3>美团 · 众人搬家公司</h3>
