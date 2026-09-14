@@ -137,6 +137,15 @@ class Index extends BaseController
                 $view = 'index/media';
                 $viewData['mediaReports'] = $expandModel->getByParent(29, 'about_media_reports');
                 break;
+            case 18:
+                // 空白联系页：复用“联系我们”完整联系模块，统一入口指向 /contact/8.html
+                $this->initConfig();
+                $view = 'index/contact';
+                $viewData['contact'] = $expandModel->find(33) ?: [];
+                $viewData['p_active'] = 7;
+                $viewData['page_title'] = '联系众人 - ' . $this->siteConfig['company_name'];
+                $viewData['canonical_url'] = $this->siteUrl('/contact/8.html');
+                break;
         }
 
         $this->render($view, $viewData);

@@ -26,15 +26,14 @@
                     <h5 class="en mx fadeInUp" data-wow-delay="0.14s" data-wow-duration=".8s">Guangdong Renren Moving and Lifting Co., Ltd</h5>
                     <p class=" mx fadeInUp" data-wow-delay="0.22s" data-wow-duration=".8s">
                         <i class="icon"><img src="/static/home/images/icon-telephone2.png" alt=""></i>
-                        <span>免费热线：<a href="tel:<?= preg_replace('/\D+/', '', (string) $site['phone']) ?>"><?= $site['phone'] ?></a></span>
-                    </p>
-                    <p class=" mx fadeInUp" data-wow-delay="0.22s" data-wow-duration=".8s">
-                        <i class="icon"><img src="/static/home/images/icon-telephone2.png" alt=""></i>
-                        <span>公司固话：<a href="tel:<?= preg_replace('/\D+/', '', (string) $site['phone']) ?>"><?= $site['phone'] ?></a></span>
+                        <span>客户服务热线：<a href="tel:<?= preg_replace('/\D+/', '', (string) $site['phone2']) ?>"><?= $site['phone2_text'] ?></a></span>
                     </p>
                     <p class=" mx fadeInUp" data-wow-delay="0.26s" data-wow-duration=".8s">
                         <i class="icon"><img src="/static/home/images/icon_phone.png" alt=""></i>
-                        <span>联系手机号：<a href="tel:<?= preg_replace('/\D+/', '', (string) $site['mobile']) ?>"><?= $site['mobile'] ?></a></span>
+                        <span>业务咨询手机：<a href="tel:<?= preg_replace('/\D+/', '', (string) $site['phone']) ?>"><?= $site['phone'] ?></a></span>
+                    </p>
+                    <p class=" mx fadeInUp" data-wow-delay="0.27s" data-wow-duration=".8s">
+                        <span>以上均为本公司官方联系电话。</span>
                     </p>
                     <p class=" mx fadeInUp" data-wow-delay="0.28s" data-wow-duration=".8s">
                         <i class="icon"><img src="/static/home/images/icon_email.png" alt=""></i>
@@ -70,7 +69,7 @@
             <div id="dot-box" class="dot-box mt40 masonry">
                 <?php
                 $cities = [
-                    ['city' => '广州市', 'title' => '广东众人搬家起重吊装有限公司', 'addr' => $site['address'] . "\n业务一线：" . $site['phone'] . "\n业务二线：" . ($site['mobile'] ?? '')],
+                    ['city' => '广州市', 'title' => $site['name'], 'addr' => $site['address'] . "\n客户服务热线：" . $site['phone2_text'] . "\n业务咨询手机：" . $site['phone']],
                 ];
                 foreach ($cities as $city):
                 ?>

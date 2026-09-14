@@ -57,7 +57,6 @@
                     <?php endforeach; ?>
                     <li><a href="/faq.html">搬家常见问题</a></li>
                 </ul>
-                <p class="beian">友情链接：<a href="https://www.zhiyuanbj.cn" target="_blank" rel="noopener noreferrer">志远搬家</a></p>
                 <p class="beian">Copyright &copy; 2025 <?= $site['name'] ?> 版权所有
                     <a target="_blank" href="http://beian.miit.gov.cn/"><?= $site['icp'] ?></a>
                 </p>
@@ -78,8 +77,8 @@
         <li>
             <div class="img-box"></div><p>热线电话</p>
             <div class="text-box">
-                <p><i>全国服务热线</i><span class="time">08:00 - 24:00</span><span class="tel"><a href="tel:<?= preg_replace('/\D+/', '', (string) $site['phone']) ?>"><?= $site['phone'] ?></a></span></p>
-                <p><i>售后服务热线</i><span class="time">08:00 - 22:00</span><span class="tel"><a href="tel:<?= preg_replace('/\D+/', '', (string) $site['phone']) ?>"><?= $site['phone'] ?></a></span></p>
+                <p><i>客户服务热线</i><span class="time">08:00 - 24:00</span><span class="tel"><a href="tel:<?= preg_replace('/\D+/', '', (string) $site['phone2']) ?>"><?= $site['phone2_text'] ?></a></span></p>
+                <p><i>业务咨询手机</i><span class="time">08:00 - 22:00</span><span class="tel"><a href="tel:<?= preg_replace('/\D+/', '', (string) $site['phone']) ?>"><?= $site['phone'] ?></a></span></p>
             </div>
         </li>
         <li><a href="tel:<?= preg_replace('/\D+/', '', (string) $site['phone']) ?>"><div class="img-box"></div><p>在线咨询</p></a></li>

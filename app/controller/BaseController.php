@@ -78,6 +78,8 @@ abstract class BaseController
             'site' => [
                 'name'        => $config['company_name'] ?? $config['site_name'] ?? '广东众人搬家起重吊装有限公司',
                 'phone'       => $config['web_call'] ?? '18148943200',
+                'phone2'      => $config['web_call2'] ?? '4008372383',
+                'phone2_text'  => preg_replace('/(\\d{3})(\\d{3})(\\d{4})/', '$1-$2-$3', (string) ($config['web_call2'] ?? '4008372383')),
                 'mobile'      => $config['web_mobile'] ?? $config['web_phone'] ?? '18148943200',
                 'email'       => $config['web_email'] ?? '',
                 'address'     => $config['web_address'] ?? '',
@@ -160,6 +162,28 @@ abstract class BaseController
         return $this->siteUrl($url);
     }
 
+    /** 公共联系电话（供结构化数据使用）：主号=业务咨询手机，辅助=客户服务热线。 */
+    private function contactPoints(): array
+    {
+        $this->initConfig();
+        $points = [[
+            '@type' => 'ContactPoint',
+            'contactType' => '业务咨询手机',
+            'telephone' => '+86-' . ($this->siteConfig['web_call'] ?? '18148943200'),
+            'areaServed' => 'CN',
+        ]];
+        $hotline = preg_replace('/\\D+/', '', (string) ($this->siteConfig['web_call2'] ?? ''));
+        if ($hotline !== '') {
+            $points[] = [
+                '@type' => 'ContactPoint',
+                'contactType' => '客户服务热线',
+                'telephone' => $hotline,
+                'areaServed' => 'CN',
+            ];
+        }
+        return $points;
+    }
+
     /** Schema shared by every public page. Keep claims limited to configured business details. */
     private function organizationSchemas(): array
     {
@@ -174,6 +198,7 @@ abstract class BaseController
             'url' => $this->siteUrl('/'),
             'logo' => $this->absoluteUrl($this->siteConfig['web_logo'] ?? $this->siteConfig['web_logo_image'] ?? '/upload/brand/zhongren-logo-red-transparent.png'),
             'telephone' => '+86-' . ($this->siteConfig['web_call'] ?? '18148943200'),
+            'contactPoint' => $this->contactPoints(),
             'address' => [
                 '@type' => 'PostalAddress',
                 'streetAddress' => $this->siteConfig['web_address'] ?? '广州市天河区棠东东路7号智域空间101室',
@@ -191,6 +216,7 @@ abstract class BaseController
             'name' => $name,
             'url' => $this->siteUrl('/'),
             'telephone' => '+86-' . ($this->siteConfig['web_call'] ?? '18148943200'),
+            'contactPoint' => $this->contactPoints(),
             'areaServed' => ['@type' => 'City', 'name' => '广州市'],
             'parentOrganization' => ['@id' => $this->siteUrl('/#organization')],
         ]];
