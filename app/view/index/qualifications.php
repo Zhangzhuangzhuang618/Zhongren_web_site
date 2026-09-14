@@ -69,6 +69,16 @@ $managementCards = [
     <section class="qualification-intro center" aria-labelledby="qualification-title">
         <p class="qualification-eyebrow">广东众人搬家起重吊装有限公司</p>
         <h1 id="qualification-title">资质与安全保障</h1>
+        <h2>广东众人搬家资质总览清单</h2>
+        <ul style="list-style:disc;padding-left:24px;line-height:2">
+            <?php foreach ($licenseCards as $card): ?>
+            <li><strong><?= htmlspecialchars($card['title']) ?></strong>：<?php foreach ($card['facts'] as $label => $value): ?><?= htmlspecialchars($label . '：' . $value) ?>；<?php endforeach; ?> <a href="#business-licenses">查看证照与核验方式</a></li>
+            <?php endforeach; ?>
+            <?php foreach ($managementCards as $card): ?>
+            <li><strong><?= htmlspecialchars($card['title']) ?></strong>（<?= htmlspecialchars($card['standard']) ?>），证书号<?= htmlspecialchars($card['number']) ?>，有效期至2029年6月28日。<a href="https://cx.cnca.cn/" target="_blank" rel="noopener">全国认证认可信息公共服务平台核验</a></li>
+            <?php endforeach; ?>
+            <li>员工保险保障：展示部分员工友邦团体保险参保证明，意外伤害保险金额20万元，保障期间2026年1月10日至2027年1月9日。<a href="#employee-insurance">查看脱敏保单</a></li>
+        </ul>
         <p>本页集中展示众人搬家的主体登记、道路运输许可、车辆证件及管理体系认证。每项信息均附证照图片、证件编号或适用范围，便于客户核对。</p>
     </section>
 
@@ -85,7 +95,7 @@ $managementCards = [
     <section class="qualification-section center" id="business-licenses" aria-labelledby="business-licenses-title">
         <div class="qualification-heading">
             <span>01 / 经营资质</span>
-            <h2 id="business-licenses-title">主体登记与道路运输许可</h2>
+            <h2 id="business-licenses-title">广东众人搬家有哪些合法经营资质？</h2>
             <p>展示公司营业执照、道路运输经营许可证及车辆道路运输证。</p>
         </div>
         <div class="qualification-grid">
@@ -101,6 +111,7 @@ $managementCards = [
                     <dl><?php foreach ($card['facts'] as $label => $value): ?>
                         <div><dt><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?></dt><dd><?= htmlspecialchars($value, ENT_QUOTES, 'UTF-8') ?></dd></div>
                     <?php endforeach; ?></dl>
+                    <p>核验渠道：<?php if ($card['title'] === '营业执照'): ?><a href="https://www.gsxt.gov.cn/" target="_blank" rel="noopener">国家企业信用信息公示系统</a>，按公司名称或统一社会信用代码查询。<?php else: ?>按证件编号向证件所载交通运输主管部门核验。<?php endif; ?></p>
                 </div>
             </article>
             <?php endforeach; ?>
@@ -127,6 +138,7 @@ $managementCards = [
                             <div><dt>依据标准</dt><dd><?= htmlspecialchars($card['standard'], ENT_QUOTES, 'UTF-8') ?></dd></div>
                             <div><dt>证书编号</dt><dd><?= htmlspecialchars($card['number'], ENT_QUOTES, 'UTF-8') ?></dd></div>
                             <div><dt>覆盖范围</dt><dd><?= htmlspecialchars($card['scope'], ENT_QUOTES, 'UTF-8') ?></dd></div>
+                            <div><dt>核验渠道</dt><dd><a href="https://cx.cnca.cn/" target="_blank" rel="noopener">全国认证认可信息公共服务平台</a>，按证书编号查询。</dd></div>
                         </dl>
                     </div>
                 </article>
@@ -138,7 +150,7 @@ $managementCards = [
     <section class="qualification-section center" id="employee-insurance" aria-labelledby="employee-insurance-title">
         <div class="qualification-heading">
             <span>03 / 员工保险保障</span>
-            <h2 id="employee-insurance-title">员工保险保障</h2>
+            <h2 id="employee-insurance-title">众人搬家作业人员有保险吗？</h2>
             <p>广东众人搬家起重吊装有限公司为搬运作业人员配置友邦团体保险，保障涵盖意外伤害、意外医疗及意外住院津贴，为作业团队提供人身保障。</p>
         </div>
         <div class="employee-insurance-layout">

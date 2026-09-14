@@ -135,7 +135,7 @@ class Index extends BaseController
             $view = 'index/qualifications';
             $viewData['page_title'] = '资质与安全保障 - 广东众人搬家起重吊装有限公司';
             $viewData['page_keywords'] = '众人搬家资质,道路运输经营许可证,ISO 9001,ISO 14001,ISO 45001,广州搬家公司';
-            $viewData['page_description'] = '查看广东众人搬家起重吊装有限公司的营业执照、道路运输经营许可证、车辆道路运输证及质量、环境、职业健康安全管理体系认证证书，并了解证照编号、范围和有效期。';
+            $viewData['page_description'] = '查看广东众人搬家起重吊装有限公司的营业执照、道路运输经营许可证、车辆道路运输证及质量、环境、职业健康安全管理体系认证证书，并了解证照编号、范围、有效期、部分员工团体保险参保证明及安全作业制度。';
             $viewData['canonical_url'] = $this->siteUrl('/about/13.html');
         }
 

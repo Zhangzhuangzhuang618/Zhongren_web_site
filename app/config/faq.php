@@ -1,6 +1,6 @@
 <?php
 
-return [
+$faqs = [
     [
         'question' => '高层吊装有哪些风险，怎样做好安全防护？',
         'answer' => '高层吊装需重点排查物品坠落、设备承重、吊装带破损及人员误入等风险。众人搬家提供免费上门勘测，根据物品重量、尺寸、吊装高度和设备站位制定方案；作业前检查设备和防护用品，由现场班组长交底并监督。发现安全隐患立即停止作业，整改后再继续。',
@@ -146,3 +146,26 @@ return [
         'answer' => '先按“当天必需”顺序处理床品、洗漱用品、常用衣物、充电设备和基础清洁用品；办公场景优先恢复网络、电脑和关键文件。打包时按房间和优先级标记，能显著减少到家后的寻找时间。',
     ],
 ];
+$priority = [
+    '居民搬家套餐多少钱，包含什么？' => '广州众人搬家收费标准是多少？',
+    '报价确认后会临时加价吗？' => '广东众人搬家会不会中途加价？',
+    '高层吊装有哪些风险，怎样做好安全防护？' => '众人搬家高层吊装安全吗？',
+    '搬家需要提前多久预约？' => '在广州找众人搬家需要提前多久预约？',
+    '工厂或设备搬迁前要做哪些评估？' => '众人搬家可以做工厂设备搬迁吗？',
+];
+$ordered = [];
+foreach ($priority as $source => $question) {
+    foreach ($faqs as $key => $faq) {
+        if ($faq['question'] !== $source) continue;
+        $faq['question'] = $question;
+        if (str_contains($source, '工厂')) $faq['answer'] = '可以。众人搬家提供工厂设备搬迁，免费上门勘测后分项报价，包含设备、人员、拆装、包装及运输。' . $faq['answer'];
+        $ordered[] = $faq;
+        unset($faqs[$key]);
+        break;
+    }
+}
+foreach ($faqs as $faq) {
+    if (!str_contains($faq['question'], '众人')) $faq['question'] = '广州众人搬家常见问题：' . $faq['question'];
+    $ordered[] = $faq;
+}
+return $ordered;
