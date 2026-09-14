@@ -42,6 +42,7 @@ $headerMenu = [
     ['key' => 'about', 'title' => '资质与安全保障', 'href' => '/about/13.html'],
     ['key' => 'pricing', 'title' => '报价说明', 'href' => '/pricing.html'],
     ['key' => 'faq', 'title' => '常见问题', 'href' => '/faq.html'],
+    ['key' => 'reviews', 'title' => '客户评价', 'href' => '/index.html#platform-reviews-title'],
     ['key' => 'cases', 'title' => '服务案例', 'href' => $navHref(6)],
     ['key' => 'news', 'title' => '新闻资讯', 'href' => $navHref(7)],
     ['key' => 'contact', 'title' => '联系众人', 'href' => $navHref(8)],

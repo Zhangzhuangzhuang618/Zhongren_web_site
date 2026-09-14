@@ -4,27 +4,9 @@
 
 <!-- Banner -->
 <section aria-label="首页横幅">
-    <div class="swiper-container banner">
-        <div class="swiper-wrapper">
-            <?php if (!empty($banners)): ?>
-                <?php foreach ($banners as $banner): ?>
-                <div class="swiper-slide">
-                    <img src="<?= htmlspecialchars($assetUrl($banner['image']), ENT_QUOTES, 'UTF-8') ?>" class="w100 block" alt="广州众人搬家服务横幅">
-                </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <div class="swiper-slide">
-                    <img src="/upload/20250216/b2b853613e76f9d5434b728944756da0.jpg" class="w100 block" alt="广州众人搬家服务横幅">
-                </div>
-                <div class="swiper-slide">
-                    <img src="/upload/20250216/091bcd172c24c0bf1d66320fcc2b3c80.jpg" class="w100 block" alt="广州众人搬家服务横幅">
-                </div>
-            <?php endif; ?>
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="banner-btn banner-left"></div>
-        <div class="banner-btn banner-next"></div>
-    </div>
+    <a href="/pricing.html" class="block" aria-label="众人搬家：查看服务方案与报价说明">
+        <img src="<?= htmlspecialchars($assetUrl('/upload/brand/zhongren-packing-banner.jpg'), ENT_QUOTES, 'UTF-8') ?>" class="w100 block" style="height:auto" width="2172" height="724" fetchpriority="high" alt="广东众人搬家起重吊装有限公司：居民搬家、企业搬迁、高层吊装、打包收纳，作业前确认方案与费用；作业实拍美化图">
+    </a>
 </section>
 
 <section class="center clearfix mt20" aria-labelledby="home-answer-title">
@@ -61,6 +43,8 @@
         </div>
     </div>
 </section>
+
+<?php include VIEW_PATH . 'layout/platform_reviews.php'; ?>
 
 <!-- 关于众人 -->
 <section class="center clearfix" aria-labelledby="about-title">

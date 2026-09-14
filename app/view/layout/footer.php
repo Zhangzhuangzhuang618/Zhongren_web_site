@@ -1,22 +1,17 @@
 </main>
-<!-- 数据统计模块 -->
-<div>
-    <div class="number" style="background-image: url(/upload/20250115/311220780e4cadb5939576640896fa23.png);">
-        <div class="center">
-            <div class="left wow fadeInLeft" data-wow-delay="0.1s">
-                <img class="lazy" data-original="/upload/20260601/8b197a2e3bc602e1b72c263b6ff60a1e.png" alt="众人搬家服务数据">
-            </div>
-            <div class="right wow fadeInRight" data-wow-delay="0.1s">
-                <ul id="number-list">
-                    <li><p><span class="count-up">20</span>年</p><p><i></i>服务经验</p></li>
-                    <li><p><span class="count-up">500</span>万</p><p><i></i>服务客户群体</p></li>
-                    <li><p><span class="count-up">2000</span>位</p><p><i></i>专业搬家技师</p></li>
-                    <li><p><span class="count-up">100</span>位</p><p><i></i>专属客服服务</p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<!-- 品牌横幅与服务展示，替换旧宣传图和规模数据 -->
+<div class="brand-service-showcase">
+    <a href="/products.html" aria-label="了解众人搬家四类服务">
+        <img src="<?= htmlspecialchars($assetUrl('/upload/brand/zhongren-service-overview.jpg'), ENT_QUOTES, 'UTF-8') ?>" width="2172" height="724" loading="lazy" alt="众人搬家服务示意：居民搬家装车运输卸车、企业设备物资搬迁、高层吊装现场勘测与方案确认、打包收纳分类整理与包装防护">
+    </a>
 </div>
+<style>
+.brand-service-showcase{background:#faf8f4;padding:24px 0;}
+.brand-service-showcase a{display:block;max-width:1440px;margin:0 auto;}
+.brand-service-showcase a+a{margin-top:20px;}
+.brand-service-showcase img{display:block;width:100%;height:auto;}
+@media(max-width:600px){.brand-service-showcase{padding:12px 0;}.brand-service-showcase a+a{margin-top:12px;}}
+</style>
 
 <!-- 页脚 -->
 <footer>

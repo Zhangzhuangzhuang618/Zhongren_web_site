@@ -106,7 +106,9 @@ $(window).scroll(function() {
         }
     })();
     (function() {
-        var a = document.getElementById("number-list").offsetTop;
+        var numberList = document.getElementById("number-list");
+        if (!numberList) return;
+        var a = numberList.offsetTop;
         if (a >= $(window).scrollTop() && a < ($(window).scrollTop() + $(window).height())) {
             if (finished === true) {
                 number();
