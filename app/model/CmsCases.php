@@ -10,7 +10,7 @@ class CmsCases extends BaseModel
         return $this->paginate(
             ['nav_id' => $navId, 'status' => 1],
             $page, $pageSize,
-            'id, title, sketch, image, link, target, nav_id, create_time, seo_title, seo_keyword, seo_content',
+            'id, title, sketch, content, image, link, target, nav_id, create_time, update_time, seo_title, seo_keyword, seo_content',
             'sort ASC, create_time DESC'
         );
     }

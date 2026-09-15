@@ -4,6 +4,7 @@ namespace app\controller;
 use app\model\CmsCases;
 use app\model\CmsNav;
 use app\model\CmsProduct;
+use app\service\CasePresentation;
 
 class Cases extends BaseController
 {
@@ -21,6 +22,7 @@ class Cases extends BaseController
         // The original /cases/6.html entry defaults to the cross-city cases child.
         $queryNavId = $id === 6 ? 10 : $id;
         $data = $casesModel->getListByNav($queryNavId, $page, 8);
+        $data['list'] = array_map([CasePresentation::class, 'prepare'], $data['list']);
 
         $siblings = [];
         if ($currentNav) {
@@ -54,6 +56,7 @@ class Cases extends BaseController
             return;
         }
 
+        $detail = CasePresentation::prepare($detail);
         $navModel = new CmsNav();
         $breadcrumb = $navModel->getBreadcrumb($detail['nav_id'] ?? 0);
         $currentNav = $navModel->find($detail['nav_id'] ?? 0) ?: [];
@@ -67,12 +70,15 @@ class Cases extends BaseController
             '@id' => $caseUrl . '#article',
             'url' => $caseUrl,
             'mainEntityOfPage' => $caseUrl,
-            'headline' => '众人搬家案例：' . $detail['title'],
+            'headline' => $detail['headline'],
+            'description' => $detail['summary'],
             'inLanguage' => 'zh-CN',
             'author' => ['@id' => $this->siteUrl('/') . '#organization'],
             'publisher' => ['@id' => $this->siteUrl('/') . '#organization'],
-            'articleBody' => trim(strip_tags(html_entity_decode($detail['content'] ?? '', ENT_QUOTES, 'UTF-8'))),
+            'articleBody' => $detail['plain_body'],
         ];
+        if (!empty($detail['create_time'])) $article['datePublished'] = date(DATE_ATOM, (int) $detail['create_time']);
+        if ($detail['display_time']) $article['dateModified'] = date(DATE_ATOM, $detail['display_time']);
         if (!empty($detail['image'])) {
             $article['image'] = $this->absoluteUrl($detail['image']);
         }
@@ -94,9 +100,9 @@ class Cases extends BaseController
             'banner'     => ($currentNav['image'] ?? '') ?: '/upload/20240510/bacfd59f43877ced86eca6d241385b84.jpg',
             'p_active'   => 5,
             'canonical_url' => $this->siteUrl('/detail_cases' . $id . '.html'),
-            'page_title'      => $detail['seo_title'] ?: $this->seoTitle($detail['title']),
+            'page_title'      => $detail['headline'],
             'page_keywords'   => $detail['seo_keyword'] ?? '',
-            'page_description'=> $detail['seo_content'] ?? '',
+            'page_description'=> $detail['summary'],
             'page_image'      => $detail['image'] ?? '',
         ]));
     }

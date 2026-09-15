@@ -61,6 +61,17 @@ class Products extends BaseController
             'page_keywords'   => $detail['seo_keyword'] ?? '',
             'page_description'=> $detail['seo_content'] ?? '',
             'page_image'      => $detail['image'] ?? '',
+            'structured_data' => [[
+                '@context' => 'https://schema.org',
+                '@type' => 'Service',
+                '@id' => $this->siteUrl('/detail/products' . $id . '.html#service'),
+                'url' => $this->siteUrl('/detail/products' . $id . '.html'),
+                'name' => $detail['title'],
+                'serviceType' => $detail['title'],
+                'provider' => ['@id' => $this->siteUrl('/#organization')],
+                'areaServed' => ['广州', '珠三角'],
+                'subjectOf' => ['@type' => 'WebPage', 'url' => $this->siteUrl('/pricing.html'), 'name' => '报价说明与常见加价避坑'],
+            ]],
         ]));
     }
 

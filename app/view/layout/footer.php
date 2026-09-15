@@ -72,6 +72,12 @@
                     <?php endforeach; ?>
                     <li><a href="/faq.html">常见问题 FAQ</a></li>
                 </ul>
+                <address style="font-style:normal;line-height:1.9;color:#ccc;margin:16px 0">
+                    <p>广东众人搬家起重吊装有限公司</p>
+                    <p>注册地址：广州市天河区棠东东路7号101室</p>
+                    <p>客户服务热线：<a href="tel:<?= htmlspecialchars(preg_replace('/\D+/', '', (string) ($site['phone2'] ?: '4008372383')), ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($site['phone2_text'] ?: '400-837-2383', ENT_QUOTES, 'UTF-8') ?></a></p>
+                    <p>业务咨询：<a href="tel:<?= htmlspecialchars(preg_replace('/\D+/', '', (string) $site['phone']), ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($site['phone'], ENT_QUOTES, 'UTF-8') ?></a> · <a href="/contact/8.html">联系我们</a></p>
+                </address>
                 <p class="beian">Copyright &copy; 2025 <?= $site['name'] ?> 版权所有
                     <a target="_blank" href="http://beian.miit.gov.cn/"><?= $site['icp'] ?></a>
                 </p>

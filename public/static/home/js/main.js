@@ -540,11 +540,6 @@ $(function() {
         duration: 2000,
         easing: 'swing',
     });
-    $("#count12").numberRock({
-        lastNumber: 6896+timeBasis,
-        duration: 2000,
-        easing: 'swing',
-    });
     $("#count13").numberRock({
         lastNumber: 24217+timeBasis,
         duration: 2000,
