@@ -11,6 +11,21 @@ foreach ($BDTS['child_id'] as &$feature) {
     }
 }
 unset($feature);
+// Keep this shared pricing answer aligned with the published price sheet.
+foreach ($CJWT['child_id'] as &$question) {
+    if (trim($question['title']) === '一站式搬家打包如何收费？') {
+        $question['content'] = <<<'HTML'
+<p>众人搬家的打包搬家服务按体积计费，普通搬家按车型套餐计费。按报价单举三个例子：</p>
+<p><strong>5立方米、10立方米有多大？</strong>可以拿搬家车的货厢作对照：常见小面包货车约2—3立方米；金杯类货运面包车约6—8立方米；4米2厢货约15—20立方米；7米级厢货（如7米6）约35—45立方米；9米级厢货（如9米6）约50—60立方米。这里说的是货厢空间，不是载重量。</p>
+<p>直观理解：5立方米约占一辆金杯货运面包车的大半车；10立方米超过一辆普通金杯的货厢空间，约占4米2厢货的半车到三分之二。上述为体积参考，不同车型尺寸、家具形状及堆放空隙会影响实际装载；按立方米报价的服务会在勘测后确认物品体积和费用，不按整辆车的容积收费。</p>
+<p>① 半日式搬家：280元/立方米，5立方米起。5立方米为1400元，包含旧家打包收纳、装车、运输、卸车，不含新家还原。</p>
+<p>② 日式精品搬家：320元/立方米，10立方米起。10立方米为3200元，在半日式服务基础上，增加新家家具、衣物等物品还原及指定位置摆放。</p>
+<p>③ 自己打包、我们搬运：小型厢式货车469元，包含装车、运输、卸车及10公里运输。若运输15公里，超出5公里按7元/公里计算，合计504元。另有大型面包车380元、大型厢式货车569元套餐。</p>
+<p>以上算例未计其他增项。无平地搬运费；楼层、超时人工、材料等适用费用见<a href="/pricing.html">完整报价说明</a>。半日式、日式精品搬家免费上门勘测，不下单也免费。作业前书面确认费用，约定范围内不临时加价，公司勘测漏项不向客户加价。</p>
+HTML;
+    }
+}
+unset($question);
 ?>
 <div class="center clearfix"><div class="wow fadeInUp" data-wow-delay="0.1s"><div class="plate-top clearfix mt45"><p><?= $CX['title'] ?><span><?= $CX['subtitle'] ?></span></p></div><ul class="tc-service mt20 clearfix"><?php foreach ($CX['child_id'] as $item): ?><li class="boxsh"><div class="top-img"><h1 class="text-center fs-18"><?= $item['title'] ?></h1><p class="text-center mt20 fs-16 main-color cc"><span class="mbxb_price"><?= $item['subtitle'] ?></span></p><div class="car mt20"><div class="img-box text-center"><img class="lazy" data-original="<?= $item['image'] ?>" alt="" src="<?= $item['image'] ?>" style="display: inline-block;"></div><div class="text-box c666"><?= $item['sketch'] ?></div></div></div><div class="a-href"><a href="javascript:" class="getBaojia">获取报价</a><a href="tel:<?= preg_replace('/\D+/', '', (string) $site['phone']) ?>">在线咨询</a></div></li><?php endforeach; ?></ul></div></div>
 <div class="center clearfix"><div class="wow fadeInUp"><div class="title-top clearfix mt45"><p><?= $BDTS['title'] ?> <span><?= $BDTS['subtitle'] ?></span></p></div><div class="characteristic mt20 boxsh clearfix"><ul><?php foreach ($BDTS['child_id'] as $item): ?><li><p class="img"><img class="lazy" data-original="<?= $item['image'] ?>" alt="<?= htmlspecialchars($item['title'] . '—众人搬家服务展示', ENT_QUOTES, 'UTF-8') ?>" src="<?= $item['image'] ?>" style="display: block;"></p><p class="txt"><?= $item['title'] ?></p><div class="text-box"><p class="fs-18"><?= $item['title'] ?></p><p class="mt10 fs-14"><?= $item['sketch'] ?></p></div></li><?php endforeach; ?></ul></div></div></div>
