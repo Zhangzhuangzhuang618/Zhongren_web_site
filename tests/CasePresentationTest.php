@@ -17,4 +17,8 @@ $imageOnly = CasePresentation::prepare(['title' => '项目甲', 'content' => '<p
 check($imageOnly['case_fields'] === [], 'no invented fields');
 check($imageOnly['display_time'] === 100 && $imageOnly['time_label'] === '内容发布时间', 'creation fallback');
 check(CasePresentation::prepare(['title' => '甲'])['display_time'] === 0, 'no epoch fallback');
+$sports = CasePresentation::prepare(['title' => '文本体育馆', 'content' => '<p>文体体育馆影音设备高空吊装</p>', 'sketch' => '文本体育馆项目']);
+check($sports['title'] === '广西体育中心', 'confirmed sports center name');
+check($sports['content'] === '<p>广西体育中心影音设备高空吊装</p>', 'legacy body name');
+check($sports['summary'] === '广西体育中心项目', 'legacy summary name');
 echo "CasePresentation tests passed\n";

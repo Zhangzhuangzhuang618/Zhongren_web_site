@@ -6,6 +6,12 @@ class CasePresentation
 {
     public static function prepare(array $case): array
     {
+        // Project name confirmed by the company; also cover legacy database copy.
+        foreach (['title', 'content', 'sketch'] as $key) {
+            if (isset($case[$key])) {
+                $case[$key] = str_replace(['文本体育馆', '文体体育馆'], '广西体育中心', $case[$key]);
+            }
+        }
         $title = trim(preg_replace('/^(众人搬家案例[：:]\s*)+/u', '', $case['title'] ?? ''));
         $title = str_replace('珠海市市政府大楼', '珠海市政府大楼', $title);
         $html = html_entity_decode($case['content'] ?? '', ENT_QUOTES, 'UTF-8');
