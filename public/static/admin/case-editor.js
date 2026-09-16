@@ -42,6 +42,7 @@
         fileInput.addEventListener('change', function () {
             pendingImages = Array.from(fileInput.files).map(function (file) { return {file: file, caption: ''}; });
             renderImages();
+            message(pendingImages.length ? '已选择 ' + pendingImages.length + ' 张图片，尚未插入正文。请点击“上传并插入”。' : '');
         });
         function restore() {
             frame.contentWindow.focus();
@@ -125,7 +126,7 @@
             } else if (action === 'source') switchMode(mode === 'source' ? 'visual' : 'source');
             else if (action === 'preview') switchMode(mode === 'preview' ? 'visual' : 'preview');
             else if (action === 'image') { remember(); panel.hidden = false; fileInput.focus(); }
-            else if (action === 'cancel-image') panel.hidden = true;
+            else if (action === 'cancel-image') { pendingImages = []; fileInput.value = ''; renderImages(); panel.hidden = true; message('已取消待插入图片。'); }
             else if (action === 'upload') {
                 if (!pendingImages.length) { message('请先选择图片。', true); return; }
                 uploading = true;
@@ -170,6 +171,14 @@
         });
         form.addEventListener('submit', function (event) {
             if (uploading) { event.preventDefault(); message('图片仍在上传，请完成后保存。', true); return; }
+            if (pendingImages.length) {
+                event.preventDefault();
+                panel.hidden = false;
+                message('还有 ' + pendingImages.length + ' 张图片尚未插入正文。请点击“上传并插入”，或取消选图后再保存。', true);
+                panel.scrollIntoView({block: 'center'});
+                root.querySelector('[data-action="upload"]').focus();
+                return;
+            }
             if (doc) sync();
         });
     });

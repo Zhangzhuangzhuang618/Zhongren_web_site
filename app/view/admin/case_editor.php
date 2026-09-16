@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/static/admin/case-editor.css?v=2">
+<link rel="stylesheet" href="/static/admin/case-editor.css?v=3">
 <section class="case-editor" data-upload-url="<?= $this->e($uploadUrl) ?>">
     <strong>案例正文</strong>
     <p class="muted">输入或粘贴文章，在需要配图的位置点击正文，再选择“插入图片”。可一次选择多张图片，也可在不同段落重复插入。图片说明可直接在图下修改；封面单独设置。</p>
@@ -21,8 +21,8 @@
         <label>正文图片<input type="file" class="case-image-file" multiple accept="image/jpeg,image/png,image/gif,image/webp"></label>
         <div class="case-image-list"></div>
         <button type="button" data-action="upload">上传并插入</button>
-        <button type="button" data-action="cancel-image">取消</button>
+        <button type="button" data-action="cancel-image">取消选图</button>
     </div>
     <p class="case-editor-status" role="status" aria-live="polite"></p>
 </section>
-<script src="/static/admin/case-editor.js?v=2" defer></script>
+<script src="/static/admin/case-editor.js?v=3" defer></script>
