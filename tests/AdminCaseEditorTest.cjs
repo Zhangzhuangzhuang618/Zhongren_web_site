@@ -66,19 +66,46 @@ const net = require('node:net');
     assert.equal(await canvas.locator('body').getAttribute('contenteditable'),'false');
     assert((await page.locator('[name=content]').inputValue()).includes('修改后的图注 &lt;现场&gt; &amp; 说明'));
     await page.locator('[data-action=preview]').click();
+    // Repeat insertion at another paragraph, including a batch with separate captions.
+    await canvas.getByText('图片之后的段落', {exact:true}).evaluate(el=>{
+      const d=el.ownerDocument,r=d.createRange();r.selectNodeContents(el);r.collapse(false);const sel=d.getSelection();sel.removeAllRanges();sel.addRange(r);
+    });
+    await page.locator('[data-action=image]').click();
+    const fixture = path.join(root,'public/static/home/images/icon_line.jpg');
+    await page.locator('.case-image-file').setInputFiles([fixture, fixture]);
+    await page.locator('.case-image-caption').nth(0).fill('第二张图');
+    await page.locator('.case-image-caption').nth(1).fill('第三张图');
+    let batchRequests = 0;
+    await page.route('**/test-admin/caseImageUpload', async route=>{
+      batchRequests++;
+      if (batchRequests === 2) await route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:'模拟网络失败'})});
+      else await route.continue();
+    });
+    await page.locator('[data-action=upload]').click();
+    await page.locator('.case-editor-status.error').waitFor();
+    assert.equal(await canvas.locator('figure img').count(),2,'successful images remain after partial failure');
+    assert.equal(await page.locator('.case-image-caption').count(),1,'retry queue contains only remaining file');
+    await page.unroute('**/test-admin/caseImageUpload');
+    await page.locator('[data-action=upload]').click();
+    await page.locator('.case-image-panel').waitFor({state:'hidden'});
+    assert.equal(await canvas.locator('figure img').count(),3);
+    assert.deepEqual(await canvas.locator('figcaption').allTextContents(),['修改后的图注 <现场> & 说明','第二张图','第三张图']);
+    const multiHtml = await page.locator('[name=content]').inputValue();
+    assert(multiHtml.indexOf('图片之后的段落') < multiHtml.indexOf('第二张图'),'second insertion uses new paragraph');
     await page.getByRole('button',{name:'保存服务案例',exact:true}).click();
     await page.goto(base+'/test-admin/caseEdit?id=1');
-    await canvas.locator('figure img').waitFor();
-    assert.equal(await canvas.locator('figcaption').innerText(),'修改后的图注 <现场> & 说明');
-    const imageUrl=await canvas.locator('figure img').getAttribute('src');
+    await canvas.locator('figure img').first().waitFor();
+    assert.equal(await canvas.locator('figure img').count(),3);
+    assert.equal(await canvas.locator('figcaption').first().innerText(),'修改后的图注 <现场> & 说明');
+    const imageUrl=await canvas.locator('figure img').first().getAttribute('src');
     assert.equal((await context.request.get(base+imageUrl)).status(),200);
     await page.setViewportSize({width:390,height:844});
     assert(await canvas.locator('body').evaluate(el=>el.scrollWidth<=el.clientWidth),'mobile article fits');
     if(process.env.CASE_EDITOR_SCREENSHOT) { await page.locator('.case-editor').scrollIntoViewIfNeeded(); await page.screenshot({path:process.env.CASE_EDITOR_SCREENSHOT,fullPage:true}); }
     const publicPage = await context.newPage();
     await publicPage.goto(base+'/test-detail');
-    assert.equal(await publicPage.locator('.case-article-body figcaption').innerText(),'修改后的图注 <现场> & 说明');
-    assert.equal(await publicPage.locator('.case-article-body figure img').count(),1);
+    assert.equal(await publicPage.locator('.case-article-body figcaption').first().innerText(),'修改后的图注 <现场> & 说明');
+    assert.equal(await publicPage.locator('.case-article-body figure img').count(),3);
     await publicPage.close();
     // Source-mode changes must also survive preview and save; scripts cannot run in the editor.
     await page.locator('[data-action=source]').click();
@@ -87,7 +114,7 @@ const net = require('node:net');
     assert.equal(await canvas.locator('p').innerText(),'源代码修改');
     assert.notEqual(await page.title(),'UNSAFE');
     assert.equal(errors.length,0,errors.join('\n'));
-    console.log('PASS: login/CSRF, invalid image rejection, failed-upload recovery, cursor insertion, captions, preview, persistence, legacy HTML, mobile layout, sandbox');
+    console.log('PASS: login/CSRF, invalid image rejection, failed-upload recovery, repeated/batch cursor insertion, partial-failure retry, captions, preview, persistence, legacy HTML, mobile layout, sandbox');
   } finally {
     if(browser) await browser.close();
     server.kill();
