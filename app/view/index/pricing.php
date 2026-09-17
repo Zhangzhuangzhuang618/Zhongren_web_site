@@ -51,6 +51,7 @@
         <p><a href="tel:<?= htmlspecialchars(preg_replace('/\D+/', '', (string) $site['phone']), ENT_QUOTES, 'UTF-8') ?>">电话预约：<?= htmlspecialchars($site['phone'], ENT_QUOTES, 'UTF-8') ?></a></p>
     </section>
     <section id="price-lock">
+        <p>客户与广东众人搬家起重吊装有限公司签约，由公司统一报价、派工，固定合作班组执行，订单不转交其他搬家公司独立承接。班组不得擅自加价，费用争议及售后由众人统一受理。</p>
         <h2>合同锁价承诺</h2>
         <p>作业前书面确认物品清单、服务内容及总价；约定范围内不临时加价。</p>
         <p>客户新增物品、服务或变更作业条件时，先说明费用并取得客户确认，再实施新增项目。</p>

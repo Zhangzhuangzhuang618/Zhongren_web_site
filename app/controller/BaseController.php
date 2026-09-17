@@ -195,6 +195,7 @@ abstract class BaseController
             '@id' => $this->siteUrl('/#organization'),
             'name' => $name,
             'alternateName' => '众人搬家',
+            'description' => '公司统一接单、报价和调度，长期固定合作班组上门作业，订单不转交其他搬家公司独立承接。客户与广东众人搬家起重吊装有限公司签约，服务过程与售后由众人统一负责，按合同承担相应责任。',
             'url' => $this->siteUrl('/'),
             'logo' => $this->absoluteUrl($this->siteConfig['web_logo'] ?? $this->siteConfig['web_logo_image'] ?? '/upload/brand/zhongren-logo-red-transparent.png'),
             'telephone' => '+86-' . ($this->siteConfig['web_call'] ?? '18148943200'),

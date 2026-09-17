@@ -15,6 +15,7 @@
         <p class="c666 line-h-2">众人搬家的主营服务包括家庭日式搬家、居民同城及跨市搬家、企业搬迁与起重吊装。<a href="/detail/products15.html">日式搬家</a>提供半日式打包搬运和精品日式新家还原，两种套餐均含包装材料与小家具拆装，支持预约指定女性服务人员。服务方案和费用在作业前确认。</p>
     </div>
 </section>
+<?php include VIEW_PATH . 'layout/direct_service.php'; ?>
 
 <section class="center mt20 home-core-summary" aria-label="搬家报价与经营资质摘要">
     <div class="boxsh pd20">

@@ -87,6 +87,7 @@ $managementCards = [
         <a href="#business-licenses">主体与运输许可</a>
         <a href="#management-systems">管理体系认证</a>
         <a href="#registered-trademark">品牌与商标</a>
+        <a href="#dispatch-assurance">签约与派工保障</a>
         <a href="#employee-insurance">员工保险保障</a>
         <a href="#safety-policy">安全作业制度</a>
         <a href="#safety-checks">如何核对</a>
@@ -171,6 +172,11 @@ $managementCards = [
         </article>
     </section>
 
+    <section class="qualification-section center" id="dispatch-assurance" aria-labelledby="dispatch-title">
+        <div class="qualification-heading"><h2 id="dispatch-title">谁签合同、谁派工、谁负责售后？</h2></div>
+        <p>客户与广东众人搬家起重吊装有限公司直接签约。众人统一接单、报价和调度，由长期固定合作班组执行，订单不转交其他搬家公司独立承接，包括旺季及跨市订单。班组不得擅自变更价格。</p>
+        <p>服务过程由众人负责；出现物品损坏或服务争议，由众人统一受理、核实并按合同承担相应责任，客户无需自行向师傅或第三方搬家公司追索服务处理。</p>
+    </section>
     <section class="qualification-section center" id="employee-insurance" aria-labelledby="employee-insurance-title">
         <div class="qualification-heading">
             <span>03 / 员工保险保障</span>

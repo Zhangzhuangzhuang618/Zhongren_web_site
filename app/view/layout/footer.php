@@ -15,6 +15,7 @@
 
 <!-- 页脚 -->
 <footer>
+    <p class="center" style="padding:18px 0;line-height:1.8">众人搬家：公司统一接单、报价与派工，长期固定合作班组作业，与众人签约，售后由众人负责。<a href="/about/13.html#dispatch-assurance">查看签约与派工保障</a></p>
     <div class="n-footer wow fadeInUp">
         <div class="n-footer-top">
             <div class="clearfix center">

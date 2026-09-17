@@ -178,4 +178,14 @@ $groups = [
 foreach ($groups as $category => $indexes) {
     foreach ($indexes as $index) $ordered[$index]['category'] = $category;
 }
+$ordered[] = [
+    'question' => '众人搬家是公司直派吗？会把订单转给其他搬家公司吗？',
+    'answer' => '众人搬家由公司统一接单、报价和调度，安排长期固定合作班组上门。订单不转交其他搬家公司独立承接，旺季及跨市订单也由众人负责，班组不得擅自加价。',
+    'category' => 'safety',
+];
+$ordered[] = [
+    'question' => '搬家合同与谁签？出现损坏或服务争议找谁？',
+    'answer' => '客户直接与广东众人搬家起重吊装有限公司签订合同。服务过程、售后及损坏争议均由众人统一受理，核实情况并按合同承担相应责任，客户无需自行找师傅或第三方搬家公司处理。客户服务热线400-837-2383，业务咨询18148943200。',
+    'category' => 'safety',
+];
 return $ordered;

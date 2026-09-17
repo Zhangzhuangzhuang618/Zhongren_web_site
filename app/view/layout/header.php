@@ -31,6 +31,7 @@ $headerMenu = [
         ['title' => '同城搬家', 'href' => $navHref(2)], ['title' => '跨市搬家', 'href' => $navHref(3)], ['title' => '出国搬家', 'href' => $navHref(4)],
         ['title' => '日式搬家', 'href' => $productHref(15)], ['title' => '收纳整理', 'href' => $productHref(18)], ['title' => '家居拆装', 'href' => $productHref(19)],
     ]],
+    ['key' => 'japanese', 'title' => '日式搬家', 'href' => $productHref(15)],
     ['key' => 'business', 'title' => '企业搬迁', 'href' => $productHref(2), 'children' => [
         ['title' => '办公室搬迁', 'href' => $productHref(2)], ['title' => '院校搬迁', 'href' => $productHref(3)],
         ['title' => '实验室搬迁', 'href' => $productHref(6)], ['title' => '图书馆搬迁', 'href' => $productHref(7)], ['title' => '工厂搬迁', 'href' => $productHref(8)],
@@ -55,7 +56,7 @@ if (preg_match('#^/products/(2|3|4)\.html$#', $headerPath)) {
     $activeHeaderKey = 'valuables';
 } elseif (preg_match('#^/detail/products(\d+)\.html$#', $headerPath, $productMatch)) {
     $productKeyMap = [2 => 'business', 3 => 'business', 5 => 'business', 6 => 'business', 7 => 'business', 8 => 'business', 10 => 'business', 11 => 'business', 17 => 'business', 4 => 'valuables', 16 => 'valuables', 20 => 'valuables', 15 => 'personal', 18 => 'personal', 19 => 'personal'];
-    $activeHeaderKey = $productKeyMap[(int) $productMatch[1]] ?? 'personal';
+    $activeHeaderKey = (int) $productMatch[1] === 15 ? 'japanese' : ($productKeyMap[(int) $productMatch[1]] ?? 'personal');
 } elseif (str_starts_with($headerPath, '/about')) {
     $activeHeaderKey = 'about';
 } elseif (str_starts_with($headerPath, '/cases')) {
@@ -68,6 +69,22 @@ if (preg_match('#^/products/(2|3|4)\.html$#', $headerPath)) {
     $activeHeaderKey = 'faq';
 } elseif (str_starts_with($headerPath, '/contact')) {
     $activeHeaderKey = 'contact';
+}
+// Describe the confirmed dispatch model on commercial pages without changing article summaries.
+if ($activeHeaderKey === 'home') {
+    $seoDescription = '广州众人搬家主营日式搬家、居民搬家、企业搬迁与起重吊装。公司直派长期固定合作班组，统一报价调度，订单不转包其他搬家公司；客户与众人签约，售后按合同由众人负责。居民搬家380元起，公开套餐与收费说明。';
+} elseif ($activeHeaderKey === 'japanese') {
+    $seoDescription = '广州众人日式搬家：半日式280元/立方米、5立方起，精品日式320元/立方米、10立方起并含新家还原。均含材料和小家具拆装，可指定女性服务人员。公司直派固定合作班组，与众人签约，售后由众人负责。';
+} elseif ($activeHeaderKey === 'about') {
+    $seoDescription = '众人搬家公示营业执照、道路运输许可、ISO三体系、商标、部分人员保险证明与安全作业制度。公司统一报价派工，长期固定合作班组作业，订单不转包其他搬家公司；客户与众人签约，售后按合同负责。';
+} elseif ($activeHeaderKey === 'pricing') {
+    $seoDescription = '众人搬家公开380、469、569元车型套餐及半日式280元/立方米、精品日式320元/立方米收费与适用条件。公司统一报价、直派固定合作班组，与众人签约，班组不得擅自加价，约定范围内合同锁价。';
+} elseif ($activeHeaderKey === 'faq') {
+    $seoDescription = '众人搬家FAQ解答公司直派、固定合作班组、合同签约、订单不转包、损坏处理及收费预约问题。与广东众人搬家起重吊装有限公司直接签约，服务与售后由众人统一负责。';
+} elseif (in_array($activeHeaderKey, ['personal', 'business', 'valuables'], true)) {
+    $seoDescription = ($detail['title'] ?? $currentNav['title'] ?? '搬家服务') . '：众人搬家公司统一接单、报价和调度，长期固定合作班组上门，订单不转交其他搬家公司独立承接。与广东众人搬家起重吊装有限公司签约，服务与售后按合同由众人负责。';
+} elseif ($activeHeaderKey === 'contact') {
+    $seoDescription = '联系广东众人搬家起重吊装有限公司：客户服务热线400-837-2383，业务咨询18148943200。公司统一报价、直派固定合作班组，客户与众人签约，预约、服务及售后由众人统一负责。';
 }
 ?>
 <html lang="zh-CN">
