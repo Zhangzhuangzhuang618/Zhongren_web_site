@@ -11,8 +11,8 @@
 
 <section class="center clearfix mt20" aria-labelledby="home-answer-title">
     <div class="boxsh pd20">
-        <h1 id="home-answer-title" class="fs-24 mb10">广州搬家服务：同城、跨市与企业搬迁</h1>
-        <p class="c666 line-h-2">众人搬家提供广州同城搬家、跨市搬家、企业搬迁、家具拆装等搬运服务。服务方案和费用会结合地址、楼层、电梯、物品及现场条件确认，预约前可先说明主要需求获取清晰安排。</p>
+        <h1 id="home-answer-title" class="fs-24 mb10">广州众人搬家：日式搬家、居民搬家与企业搬迁吊装</h1>
+        <p class="c666 line-h-2">众人搬家的主营服务包括家庭日式搬家、居民同城及跨市搬家、企业搬迁与起重吊装。<a href="/detail/products15.html">日式搬家</a>提供半日式打包搬运和精品日式新家还原，两种套餐均含包装材料与小家具拆装，支持预约指定女性服务人员。服务方案和费用在作业前确认。</p>
     </div>
 </section>
 

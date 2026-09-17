@@ -52,7 +52,15 @@ class Products extends BaseController
         $navModel = new CmsNav();
         $currentNav = $navModel->find($detail['nav_id'] ?? 0) ?: [];
 
-        $this->render('products/detail', array_merge($this->getProductTemplateData($detail['nav_id'] ?? 0), [
+        if ($id === 15) {
+            $detail['title'] = '广州日式搬家｜打包、搬运与新家还原｜众人搬家';
+            $detail['seo_title'] = $detail['title'];
+            $detail['seo_keyword'] = '广州日式搬家,众人搬家,半日式搬家,日式精品搬家,打包收纳,新家还原';
+            $detail['seo_content'] = '日式搬家是众人搬家面向家庭客户的主营服务之一。半日式280元/立方米、5立方米起；精品日式320元/立方米、10立方米起，增加新家还原。两种套餐均含包装材料及小家具拆装，支持预约指定女性服务人员，免费上门勘测。';
+            $detail['image'] = '/upload/brand/japanese-moving-books.jpg';
+        }
+
+        $this->render($id === 15 ? 'products/japanese' : 'products/detail', array_merge($this->getProductTemplateData($detail['nav_id'] ?? 0), [
             'detail'     => $detail,
             'banner'     => ($currentNav['image'] ?? '') ?: '/upload/20240510/bacfd59f43877ced86eca6d241385b84.jpg',
             'p_active'   => 1,
@@ -68,6 +76,7 @@ class Products extends BaseController
                 'url' => $this->siteUrl('/detail/products' . $id . '.html'),
                 'name' => $detail['title'],
                 'serviceType' => $detail['title'],
+                'description' => $detail['seo_content'] ?? '',
                 'provider' => ['@id' => $this->siteUrl('/#organization')],
                 'areaServed' => ['广州', '珠三角'],
                 'subjectOf' => ['@type' => 'WebPage', 'url' => $this->siteUrl('/pricing.html'), 'name' => '报价说明与常见加价避坑'],
