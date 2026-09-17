@@ -18,9 +18,9 @@ class Cases extends BaseController
             $currentNav = $navModel->findWhere(['url_model' => 'cases']);
         }
 
-        $page = (int)($this->get('page', 1));
-        // The original /cases/6.html entry defaults to the cross-city cases child.
-        $queryNavId = $id === 6 ? 10 : $id;
+        $page = max(1, (int)($this->get('page', 1)));
+        // The main cases entry includes every published case, without a category filter.
+        $queryNavId = $id === 6 ? 0 : $id;
         $data = $casesModel->getListByNav($queryNavId, $page, 8);
         $data['list'] = array_map([CasePresentation::class, 'prepare'], $data['list']);
 
@@ -33,6 +33,7 @@ class Cases extends BaseController
         $this->render('cases/index', array_merge($this->getNewsSidebar(), [
             'currentNav' => $currentNav ?? [],
             'classify'   => $siblings,
+            'selectedCaseNavId' => $queryNavId,
             'list'       => $data['list'],
             'total'      => $data['total'],
             'page'       => $data['page'],

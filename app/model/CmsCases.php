@@ -8,10 +8,10 @@ class CmsCases extends BaseModel
     public function getListByNav(int $navId, int $page = 1, int $pageSize = 12): array
     {
         return $this->paginate(
-            ['nav_id' => $navId, 'status' => 1],
+            $navId === 0 ? ['status' => 1] : ['nav_id' => $navId, 'status' => 1],
             $page, $pageSize,
             'id, title, sketch, content, image, link, target, nav_id, create_time, update_time, seo_title, seo_keyword, seo_content',
-            'sort ASC, create_time DESC'
+            'sort ASC, create_time DESC, id DESC'
         );
     }
 
