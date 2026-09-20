@@ -45,7 +45,8 @@
                 </div>
             </div>
         </div>
-        <section class="center douyin-entry" aria-labelledby="douyin-title">
+        <div class="center platform-shop-entries">
+        <section class="douyin-entry" aria-labelledby="douyin-title">
             <a href="/upload/brand/zhongren-douyin-qr.jpg" target="_blank" rel="noopener" aria-label="放大查看众人搬家抖音二维码">
                 <img src="/upload/brand/zhongren-douyin-qr.jpg" width="1125" height="1680" loading="lazy" alt="广东众人搬家起重吊装有限公司抖音二维码，抖音号77488260985">
             </a>
@@ -57,7 +58,27 @@
                 <a class="douyin-profile-link" href="https://v.douyin.com/hIRoU80ywdE/" target="_blank" rel="noopener">进入众人搬家抖音主页 →</a>
             </div>
         </section>
+        <section class="douyin-entry shop-entry" aria-labelledby="taobao-shop-title">
+            <a class="shop-qr taobao-shop-qr" href="/upload/brand/zhongren-taobao-shop-qr.jpg" target="_blank" rel="noopener" aria-label="放大查看淘宝店铺二维码原图">
+                <img src="/upload/brand/zhongren-taobao-shop-qr.jpg" alt="淘宝广州众人搬家店铺二维码，使用淘宝扫一扫">
+            </a>
+            <div><h2 id="taobao-shop-title">淘宝店铺</h2><p>广州众人搬家</p><p>打开淘宝扫一扫，或搜索“广州众人搬家”。</p><a class="douyin-profile-link" href="/upload/brand/zhongren-taobao-shop-qr.jpg" target="_blank" rel="noopener">查看二维码原图 →</a></div>
+        </section>
+        <section class="douyin-entry shop-entry" aria-labelledby="jd-shop-title">
+            <a class="shop-qr jd-shop-qr" href="/upload/brand/zhongren-jd-shop-qr.jpg" target="_blank" rel="noopener" aria-label="放大查看京东店铺二维码原图">
+                <img src="/upload/brand/zhongren-jd-shop-qr.jpg" alt="京东众人搬家运输专营店二维码，使用京东扫一扫">
+            </a>
+            <div><h2 id="jd-shop-title">京东店铺</h2><p>众人搬家运输专营店</p><p>打开京东扫一扫，或搜索“众人搬家运输专营店”。</p><a class="douyin-profile-link" href="/upload/brand/zhongren-jd-shop-qr.jpg" target="_blank" rel="noopener">查看二维码原图 →</a></div>
+        </section>
+        </div>
         <style>
+        .platform-shop-entries{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
+        .platform-shop-entries .douyin-entry{flex-direction:column;align-items:flex-start;gap:16px;min-width:0;}
+        .platform-shop-entries .shop-qr{display:block;position:relative;overflow:hidden;width:180px;height:180px;background:#fff;flex-shrink:0;}
+        .platform-shop-entries .shop-qr img{position:absolute;height:auto;max-width:none;}
+        .platform-shop-entries .taobao-shop-qr img{width:601.5%;left:-72.5%;top:-710%;}
+        .platform-shop-entries .jd-shop-qr img{width:203.2%;left:-51.6%;top:-152.7%;}
+        @media(max-width:760px){.platform-shop-entries{grid-template-columns:1fr;}}
         .douyin-entry{display:flex;align-items:center;gap:28px;padding-top:24px;padding-bottom:24px;color:#ccc;border-top:1px solid #383838;}
         .douyin-entry img{display:block;width:160px;height:auto;max-width:none;}
         .douyin-entry h2{font-size:22px;color:#fff;margin-bottom:12px;}
