@@ -25,4 +25,4 @@
     </div>
     <p class="case-editor-status" role="status" aria-live="polite"></p>
 </section>
-<script src="/static/admin/case-editor.js?v=3" defer></script>
+<script src="/static/admin/case-editor.js?v=4" defer></script>

@@ -12,7 +12,7 @@
 <section class="center clearfix mt20" aria-labelledby="home-answer-title">
     <div class="boxsh pd20">
         <h1 id="home-answer-title" class="fs-24 mb10">广州众人搬家：日式搬家、居民搬家与企业搬迁吊装</h1>
-        <p class="c666 line-h-2">众人搬家的主营服务包括家庭日式搬家、居民同城及跨市搬家、企业搬迁与起重吊装。<a href="/detail/products15.html">日式搬家</a>提供半日式打包搬运和精品日式新家还原，两种套餐均含包装材料与小家具拆装，支持预约指定女性服务人员。服务方案和费用在作业前确认。</p>
+        <p class="c666 line-h-2">众人搬家的主营服务包括家庭日式搬家、居民同城及跨市搬家、企业搬迁与起重吊装。<a href="/detail/products15.html">日式搬家</a>提供半日式打包搬运和精品日式新家还原，两种套餐均含包装材料与小家具拆装；大型家具或电器（含空调）拆装另计，具体费用在作业前确认。支持预约指定女性服务人员。服务方案和费用在作业前确认。</p>
     </div>
 </section>
 <?php include VIEW_PATH . 'layout/direct_service.php'; ?>

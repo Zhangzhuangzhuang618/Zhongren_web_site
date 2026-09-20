@@ -128,7 +128,7 @@ if ($activeHeaderKey === 'home') {
                         <div class="city-con">
                             <div class="city-list-1"><ul><li><p>
                                 <?php foreach ($city_list as $city): ?>
-                                <a href="https://<?= $city['en_mark'] ?>.zrbanjia.com" city-code="<?= $city['en_mark'] ?>"><?= $city['mark'] ?></a>
+                                <a href="https://www.zrbanjia.com/pricing.html" title="<?= htmlspecialchars($city['mark'], ENT_QUOTES, 'UTF-8') ?>服务咨询，统一查看众人主站报价"><?= htmlspecialchars($city['mark'], ENT_QUOTES, 'UTF-8') ?>（主站报价）</a>
                                 <?php endforeach; ?>
                                 <p><a href="https://www.zrbanjia.com">更多&gt;</a></p>
                             </li></ul></div>

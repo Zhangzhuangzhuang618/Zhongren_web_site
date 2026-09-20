@@ -135,6 +135,40 @@ const net = require('node:net');
     assert.equal(await canvas.locator('figure img').count(),4,'new image persists on second edit');
     assert.equal(await page.locator('[name=image]').inputValue(),savedCover,'second edit preserves cover');
 
+    // No-caret paste, including a browser that silently declines insertHTML.
+    await page.locator('[data-action=source]').click();
+    await page.locator('[name=content]').fill('');
+    await page.locator('[data-action=source]').click();
+    await canvas.locator('body').evaluate(body => {
+      const d = body.ownerDocument;
+      d.getSelection().removeAllRanges();
+      d.execCommand = () => false;
+      const clipboardData = new DataTransfer();
+      clipboardData.setData('text/plain', '无光标粘贴正文\n第二段 <非HTML>');
+      body.dispatchEvent(new ClipboardEvent('paste', {bubbles:true,cancelable:true,clipboardData}));
+    });
+    assert((await page.locator('[name=content]').inputValue()).includes('无光标粘贴正文'));
+    await page.locator('[data-command=bold]').evaluate(button => {
+      const clipboardData = new DataTransfer(); clipboardData.setData('text/plain', '工具栏粘贴');
+      button.dispatchEvent(new ClipboardEvent('paste', {bubbles:true,cancelable:true,clipboardData}));
+    });
+    assert((await page.locator('[name=content]').inputValue()).includes('工具栏粘贴'));
+    await page.getByRole('button',{name:'保存服务案例',exact:true}).click();
+    await page.goto(base+'/test-admin/caseEdit?id=1');
+    await canvas.locator('body[contenteditable=true]').waitFor();
+    const pasted = await page.locator('[name=content]').inputValue();
+    assert(pasted.includes('无光标粘贴正文') && pasted.includes('工具栏粘贴'));
+    await page.locator('[data-action=source]').click();
+    await page.locator('[name=content]').fill('<p><br>&nbsp;</p>');
+    await page.getByRole('button',{name:'保存服务案例',exact:true}).click();
+    await page.getByText('案例正文为空，未保存。请粘贴正文或插入图片后再保存。').waitFor();
+    response = await context.request.post(base+'/test-admin/caseSave', {form:{
+      _csrf:csrf,id:'1',title:'不应保存的标题',content:'<p><br>&nbsp;</p>',status:'1'
+    }});
+    assert((await response.text()).includes('案例正文为空，未保存'));
+    await page.goto(base+'/test-admin/caseEdit?id=1');
+    await canvas.locator('body[contenteditable=true]').waitFor();
+    assert.equal(await page.locator('[name=content]').inputValue(),pasted,'empty POST cannot overwrite stored content');
     // Source-mode changes must also survive preview and save; scripts cannot run in the editor.
     await page.locator('[data-action=source]').click();
     await page.locator('[name=content]').fill('<p>源代码修改</p><img src="x" onerror="parent.document.title=\'UNSAFE\'">');

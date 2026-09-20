@@ -256,6 +256,16 @@ class Admin extends BaseController
         if ($title === '') $this->fail('标题不能为空。', $back);
         $id = (int)($_POST['id'] ?? 0); $now = time();
         $existing = $id ? $this->find($table, $id) : null;
+        if ($kind === 'case') {
+            $content = (string)($_POST['content'] ?? '');
+            $text = html_entity_decode(strip_tags($content), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+            $hasText = preg_replace('/[\s\x{00a0}\x{200b}\x{feff}]+/u', '', $text) !== '';
+            $hasMedia = preg_match('/<(?:img|video|source)\b[^>]*\bsrc\s*=\s*["\x27][^"\x27]+["\x27]/i', $content);
+            if (!$hasText && !$hasMedia) {
+                $_SESSION['admin_content_draft']['case'] = array_intersect_key($_POST, array_flip(['id', 'title', 'nav_id', 'sketch', 'image', 'content', 'seo_title', 'seo_keyword', 'seo_content', 'sort', 'status']));
+                $this->fail('案例正文为空，未保存，原有数据库内容未修改。请补充正文后再保存。', '/caseEdit?id=' . $id);
+            }
+        }
         $isNew = !$id;
         $wasPublished = (int)($existing['status'] ?? 0) === 1;
         $uploadedImage = $this->storeImageUpload('cover_image', $back);

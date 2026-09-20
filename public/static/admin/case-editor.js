@@ -59,6 +59,37 @@
             // Do not rewrite legacy HTML merely by opening and saving a case.
             if (changed && mode !== 'source') source.value = doc.body.innerHTML;
         }
+        function pasteText(event) {
+            if (!doc || mode !== 'visual' || uploading) return;
+            var text = event.clipboardData && event.clipboardData.getData('text/plain');
+            event.preventDefault();
+            if (!text) { message('剪贴板中没有可粘贴的文字；图片请使用“插入图片”。', true); return; }
+            remember();
+            restore();
+            var html = text.split(/\r?\n/).map(function (line) {
+                return '<p>' + (escape(line) || '<br>') + '</p>';
+            }).join('');
+            var before = doc.body.innerHTML;
+            doc.execCommand('insertHTML', false, html);
+            if (doc.body.innerHTML === before) {
+                // A valid Range also works when the browser declines execCommand.
+                var fragment = range.createContextualFragment(html);
+                var last = fragment.lastChild;
+                range.deleteContents();
+                range.insertNode(fragment);
+                range.setStartAfter(last);
+                range.collapse(true);
+                restore();
+            }
+            changed = true; sync(); remember();
+            message('文字已粘贴，请检查正文后保存。');
+        }
+        // Paste after using the toolbar, or before the iframe has a caret.
+        // Never intercept paste intended for another form field.
+        document.addEventListener('paste', function (event) {
+            var target = event.target;
+            if (target === document.body || (root.contains(target) && !target.closest('input, textarea, [contenteditable="true"]'))) pasteText(event);
+        });
         function updateControls() {
             root.querySelectorAll('[data-command], [data-action="image"]').forEach(function (button) {
                 button.disabled = mode !== 'visual' || uploading;
@@ -93,15 +124,7 @@
             doc.addEventListener('click', function (event) {
                 if (event.target.closest('a')) event.preventDefault();
             });
-            doc.body.addEventListener('paste', function (event) {
-                // Paste text only: no remote images, scripts or Word formatting.
-                event.preventDefault();
-                var text = event.clipboardData.getData('text/plain');
-                doc.execCommand('insertHTML', false, text.split(/\r?\n/).map(function (line) {
-                    return '<p>' + (escape(line) || '<br>') + '</p>';
-                }).join(''));
-                changed = true; sync(); remember();
-            });
+            doc.body.addEventListener('paste', pasteText);
             source.hidden = true;
             frame.hidden = false;
             updateControls();
@@ -180,6 +203,13 @@
                 return;
             }
             if (doc) sync();
+            var body = document.createElement('div');
+            body.innerHTML = source.value;
+            if (!body.textContent.replace(/[\s\u200b\ufeff]/g, '') && !body.querySelector('img[src], video[src], video source[src]')) {
+                event.preventDefault();
+                message('案例正文为空，未保存。请粘贴正文或插入图片后再保存。', true);
+                root.scrollIntoView({block: 'center'});
+            }
         });
     });
 }());

@@ -132,8 +132,9 @@
         <div class="container">
             <div class="box1">
                 <div class="left-box">
-                    <h1><span>搬家服务</span>价格估算</h1>
-                    <p>选择服务类型与预估体积，立即查看参考报价</p>
+                    <h1><span>日式搬家</span>价格估算</h1>
+                    <p>本计算器仅用于半日式与日式精品搬家，按物品体积计费，不适用于普通搬家车型套餐。</p>
+                    <p>日式搬家面包车、厢式货车含30公里，4.2米厢式货车含50公里。普通搬家380元、469元套餐含10公里，569元套餐含50公里。<a href="/pricing.html">查看普通搬家套餐与完整收费说明</a></p>
                     <div class="inside-box quote-calculator">
                         <div class="quote-layout">
                             <div class="quote-fields">
@@ -152,8 +153,8 @@
                                         <option value="天河区">天河区</option><option value="越秀区">越秀区</option><option value="海珠区">海珠区</option><option value="白云区">白云区</option><option value="番禺区">番禺区</option><option value="黄埔区">黄埔区</option><option value="广州市外">广州市外</option>
                                     </select>
                                 </label>
-                                <label class="quote-field">车型
-                                    <select id="quote-vehicle" aria-label="车型">
+                                <label class="quote-field">日式搬家用车（包含里程）
+                                    <select id="quote-vehicle" aria-label="日式搬家用车（包含里程）">
                                         <option value="面包车" data-included-km="30">面包车（含 30 公里）</option><option value="厢式货车" data-included-km="30">厢式货车（含 30 公里）</option><option value="4.2米厢式货车" data-included-km="50">4.2 米厢式货车（含 50 公里）</option>
                                     </select>
                                 </label>
@@ -170,7 +171,7 @@
                             </div>
                             <aside class="quote-summary" aria-label="报价结果与服务说明">
                                 <div class="quote-result" aria-live="polite"><span id="quote-price-label">半日式搬家预估价</span><strong>¥<b id="quote-price">1400</b> 起</strong><em id="quote-breakdown">半日式 · 天河区→天河区 · 面包车 · 按 5 立方最低起算</em></div>
-                                <div class="quote-service-note"><b id="quote-service-name">半日式搬家服务</b><p id="quote-service-description">包含全程打包，无需亲自动手。</p></div>
+                                <div class="quote-service-note"><b id="quote-service-name">半日式搬家服务</b><p id="quote-service-description">包含旧家打包、包装材料与小家具拆装；大型家具或电器拆装另计。</p></div>
                                 <a class="pianoBtn" href="tel:<?= preg_replace('/\D+/', '', (string) $site['phone']) ?>">一键拨号，获取准确报价</a>
                                 <p class="warning" id="quote-warning">*半日式搬家 280 元/立方，最低按 5 立方起算；最终以客服确认的作业方案为准</p>
                             </aside>
@@ -213,7 +214,7 @@ function updateQuoteCalculator(){
     $('#quote-price-label').text(serviceName + '预估价');
     $('#quote-breakdown').text(serviceName + ' · ' + from + '→' + to + ' · ' + vehicle.val() + '（含 ' + includedKm + ' 公里）· 按 ' + billedVolume + ' 立方' + (volume < minimumVolume ? '最低起算' : '计费') + (extras.length ? ' · ' + extras.join(' · ') : ''));
     $('#quote-service-name').text(serviceName + '服务');
-    $('#quote-service-description').text(isJapanese ? '包含全程打包及搬入后的物品复原，无需亲自动手。' : '包含全程打包，无需亲自动手。');
+    $('#quote-service-description').text(isJapanese ? '包含旧家打包、包装材料、小家具拆装及新家还原；大型家具或电器拆装另计。' : '包含旧家打包、包装材料与小家具拆装；大型家具或电器拆装另计。');
     $('#quote-warning').text('*' + serviceName + ' ' + unitPrice + ' 元/立方，最低按 ' + minimumVolume + ' 立方起算；超出车型免费里程按 7 元/公里，大件按所选项目计费，最终以客服确认的作业方案为准');
 }
 </script>

@@ -176,6 +176,6 @@
     </details>
     <div class="safety-policy-signature">
         <p>广东众人搬家起重吊装有限公司</p>
-        <p><time datetime="2019-07-15">2019年7月15日</time></p>
+        <p><time datetime="2019-10-29">2019年10月29日</time></p>
     </div>
 </article>
