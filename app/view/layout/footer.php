@@ -66,7 +66,7 @@
         </section>
         <section class="douyin-entry shop-entry" aria-labelledby="dianping-shop-title">
             <a class="shop-qr dianping-shop-qr" href="/upload/brand/zhongren-dianping-shop-qr.jpg" target="_blank" rel="noopener" aria-label="放大查看大众点评店铺二维码原图">
-                <img src="/upload/brand/zhongren-dianping-shop-qr.jpg" loading="lazy" alt="大众点评众人搬家公司店铺二维码，使用大众点评扫一扫">
+                <img src="/upload/brand/zhongren-dianping-shop-qr.jpg" width="1200" height="1600" loading="eager" alt="大众点评众人搬家公司店铺二维码，使用大众点评扫一扫">
             </a>
             <div><h2 id="dianping-shop-title">大众点评店铺</h2><p>众人搬家公司</p><p>打开大众点评扫一扫，或搜索“众人搬家公司”。</p><a class="douyin-profile-link" href="/upload/brand/zhongren-dianping-shop-qr.jpg" target="_blank" rel="noopener">查看二维码原图 →</a></div>
         </section>

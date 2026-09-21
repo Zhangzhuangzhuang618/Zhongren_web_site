@@ -36,10 +36,10 @@
                         <span>以上均为本公司官方联系电话。</span>
                     </p>
                     <div class="contact-shop-codes" aria-label="店铺二维码，点击查看大图扫码">
-                        <?php foreach (['taobao' => '淘宝', 'dianping' => '大众点评', 'jd' => '京东'] as $platform => $label): ?>
+                        <?php foreach (['taobao' => ['淘宝', '广州众人搬家'], 'dianping' => ['大众点评', '众人搬家公司'], 'jd' => ['京东', '众人搬家运输专营店']] as $platform => [$label, $shopName]): ?>
                         <a href="/upload/brand/zhongren-<?= $platform ?>-shop-qr.jpg" target="_blank" rel="noopener" aria-label="查看<?= $label ?>店铺二维码大图">
-                            <span class="contact-shop-qr contact-shop-qr-<?= $platform ?>"><img src="/upload/brand/zhongren-<?= $platform ?>-shop-qr.jpg" loading="lazy" alt="<?= $label ?>店铺二维码"></span>
-                            <strong><?= $label ?>店铺</strong><small>点击查看大图</small>
+                            <span class="contact-shop-qr contact-shop-qr-<?= $platform ?>"><img src="/upload/brand/zhongren-<?= $platform ?>-shop-qr.jpg" loading="eager" alt="<?= $label ?>店铺二维码"></span>
+                            <strong><?= $label ?>店铺</strong><span class="contact-shop-name"><?= $shopName ?></span><small>点击查看大图</small>
                         </a>
                         <?php endforeach; ?>
                     </div>
@@ -58,14 +58,15 @@
 
 <style>
 .contact-shop-codes{display:flex;flex-wrap:wrap;gap:18px;margin:20px 0;}
-.contact-shop-codes>a{display:flex;flex-direction:column;align-items:center;color:#333;}
+.contact-shop-codes>a{display:flex;flex-direction:column;align-items:center;color:#333;width:140px;text-align:center;}
+.contact-shop-name{font-size:14px;line-height:1.6;min-height:45px;}
 .contact-shop-codes small{color:#666;font-size:12px;}
 .contact-shop-qr{display:block;position:relative;overflow:hidden;width:110px;height:110px;background:#fff;}
 .contact-shop-codes .contact-shop-qr img{position:absolute;height:auto;max-width:none;}
 .contact-shop-codes .contact-shop-qr-taobao img{width:601.5%;left:-72.5%;top:-710%;}
 .contact-shop-codes .contact-shop-qr-dianping img{width:218.18%;left:-59.09%;top:-114.55%;}
 .contact-shop-codes .contact-shop-qr-jd img{width:203.2%;left:-51.6%;top:-152.7%;}
-@media(max-width:480px){.contact-shop-codes{gap:10px;}.contact-shop-qr{width:88px;height:88px;}}
+@media(max-width:480px){.contact-shop-codes{gap:10px;}.contact-shop-codes>a{width:calc((100% - 20px)/3);}.contact-shop-qr{width:88px;height:88px;}}
 </style>
 
 <div>
