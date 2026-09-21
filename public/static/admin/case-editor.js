@@ -9,7 +9,7 @@
         var imageList = root.querySelector('.case-image-list');
         var pendingImages = [];
         var status = root.querySelector('.case-editor-status');
-        var doc, range, mode = 'visual', uploading = false, changed = false;
+        var doc, range, mode = 'visual', uploading = false, baseline = '';
         var escape = function (s) {
             return s.replace(/[&<>"']/g, function (c) { return {'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]; });
         };
@@ -56,8 +56,13 @@
             selection.addRange(range);
         }
         function sync() {
-            // Do not rewrite legacy HTML merely by opening and saving a case.
-            if (changed && mode !== 'source') source.value = doc.body.innerHTML;
+            if (!doc || mode === 'source') return;
+            // Read the live iframe, not an input-event flag: Safari can change the
+            // editable DOM without notifying our input/paste listeners.
+            var html = frame.contentDocument.body.innerHTML;
+            // Preserve untouched legacy HTML despite browser normalization.
+            if (html !== baseline) source.value = html;
+            baseline = html;
         }
         function pasteText(event) {
             if (!doc || mode !== 'visual' || uploading) return;
@@ -81,7 +86,7 @@
                 range.collapse(true);
                 restore();
             }
-            changed = true; sync(); remember();
+            sync(); remember();
             message('文字已粘贴，请检查正文后保存。');
         }
         // Paste after using the toolbar, or before the iframe has a caret.
@@ -104,7 +109,7 @@
             if (mode === 'source') {
                 doc.body.innerHTML = source.value;
                 range = null;
-                changed = false;
+                baseline = doc.body.innerHTML;
             }
             mode = next;
             panel.hidden = true;
@@ -117,9 +122,10 @@
         frame.addEventListener('load', function () {
             doc = frame.contentDocument;
             doc.body.innerHTML = source.value;
+            baseline = doc.body.innerHTML;
             doc.body.contentEditable = 'true';
             doc.body.setAttribute('aria-label', '案例正文');
-            doc.body.addEventListener('input', function () { changed = true; sync(); remember(); });
+            doc.body.addEventListener('input', function () { sync(); remember(); });
             doc.addEventListener('selectionchange', remember);
             doc.addEventListener('click', function (event) {
                 if (event.target.closest('a')) event.preventDefault();
@@ -145,7 +151,7 @@
             if (command) {
                 restore();
                 doc.execCommand(command, false, button.dataset.value || null);
-                changed = true; sync(); remember();
+                sync(); remember();
             } else if (action === 'source') switchMode(mode === 'source' ? 'visual' : 'source');
             else if (action === 'preview') switchMode(mode === 'preview' ? 'visual' : 'preview');
             else if (action === 'image') { remember(); panel.hidden = false; fileInput.focus(); }
@@ -175,7 +181,7 @@
                         var html = '<figure><img src="' + escape(result.url) + '" alt="' + escape(caption) + '">'
                             + '<figcaption>' + (escape(caption) || '在此填写图片说明') + '</figcaption></figure><p><br></p>';
                         if (!doc.execCommand('insertHTML', false, html)) throw new Error('插入失败，请重新选择正文位置后重试。');
-                        changed = true; sync(); captureRange();
+                        sync(); captureRange();
                         doc.body.contentEditable = 'false';
                         pendingImages.shift();
                         inserted++;

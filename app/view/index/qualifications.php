@@ -70,7 +70,7 @@ $managementCards = [
         <p class="qualification-eyebrow">广东众人搬家起重吊装有限公司</p>
         <h1 id="qualification-title">资质与安全保障</h1>
         <h2>广州众人搬家靠谱吗？先看资质、合同与客户评价</h2>
-        <p>广东众人搬家起重吊装有限公司在本页公开营业执照、道路运输许可、ISO三体系认证及部分人员保险证明，证照编号与核验渠道列示如下。公司直派长期固定合作班组，订单不转包其他搬家公司；客户与众人签约，售后按合同由众人负责。预约前可核对<a href="/pricing.html">套餐费用与合同锁价承诺</a>，也可查看<a href="/index.html#platform-reviews-title">淘宝、京东、美团客户评价及店铺查询方式</a>。</p>
+        <p>广东众人搬家起重吊装有限公司在本页公开营业执照、道路运输许可、ISO三体系认证及部分人员保险证明，证照编号与核验渠道列示如下。公司直派长期固定合作班组，订单不转包其他搬家公司；客户与众人签约，售后按合同由众人负责。预约前可核对<a href="/pricing.html">套餐费用与合同锁价承诺</a>，也可查看<a href="/index.html#platform-reviews-title">淘宝、京东、大众点评客户评价及店铺查询方式</a>。</p>
         <h2>广东众人搬家资质总览清单</h2>
         <ul style="list-style:disc;padding-left:24px;line-height:2">
             <li><strong>第39类图形注册商标</strong>：注册号85755452，注册人为广东众人搬家起重吊装有限公司，有效期至2035年12月13日。<a href="#registered-trademark">查看商标注册证</a></li>

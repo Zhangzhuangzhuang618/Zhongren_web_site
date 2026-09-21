@@ -35,6 +35,16 @@ const net = require('node:net');
     await page.goto(base+'/test-admin/caseEdit?id=1');
     await canvas.locator('body[contenteditable=true]').waitFor();
     assert.equal(await page.locator('[name=content]').inputValue(),legacy,'legacy HTML unchanged');
+    // Safari regression: live DOM changes without an input/paste notification.
+    await canvas.locator('body').evaluate(body => { body.innerHTML = '<p>2024 年12月31日，案例日期</p>'; });
+    await page.locator('[data-action=source]').click();
+    assert.equal(await page.locator('[name=content]').inputValue(),'<p>2024 年12月31日，案例日期</p>','source mode reads live DOM without input event');
+    await page.locator('[data-action=source]').click();
+    await canvas.locator('body').evaluate(body => { body.innerHTML = '<p>直接保存的日期：2024 年12月31日</p>'; });
+    await page.getByRole('button',{name:'保存服务案例',exact:true}).click();
+    await page.goto(base+'/test-admin/caseEdit?id=1');
+    await canvas.locator('body[contenteditable=true]').waitFor();
+    assert.equal(await page.locator('[name=content]').inputValue(),'<p>直接保存的日期：2024 年12月31日</p>','submit reads live DOM without input event');
     const csrf = await page.locator('form.edit-form [name=_csrf]').inputValue();
     response = await context.request.post(base+'/test-admin/caseImageUpload',{multipart:{_csrf:'bad'}});
     assert.equal(response.status(),403);

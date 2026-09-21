@@ -86,7 +86,7 @@ class Index extends BaseController
             'why'        => $why,
             'page_title' => '广州搬家公司｜日式搬家、居民搬家与企业搬迁｜众人搬家',
             'page_keywords' => $this->siteConfig['seo_keyword'] ?? '',
-            'page_description' => '众人搬家提供广州居民搬家、日式打包收纳、企业工厂搬迁与高层吊装服务，居民搬家380元起。官网公开收费明细、合同锁价承诺、资质证照及美团、淘宝、京东客户评价。咨询：020-85627757。',
+            'page_description' => '众人搬家提供广州居民搬家、日式打包收纳、企业工厂搬迁与高层吊装服务，居民搬家380元起。官网公开收费明细、合同锁价承诺、资质证照及大众点评、淘宝、京东客户评价。咨询：020-85627757。',
             'canonical_url' => $this->siteUrl('/'),
             'structured_data' => [[
                 '@context' => 'https://schema.org',

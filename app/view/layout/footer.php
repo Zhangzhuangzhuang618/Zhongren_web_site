@@ -64,6 +64,12 @@
             </a>
             <div><h2 id="taobao-shop-title">淘宝店铺</h2><p>广州众人搬家</p><p>打开淘宝扫一扫，或搜索“广州众人搬家”。</p><a class="douyin-profile-link" href="/upload/brand/zhongren-taobao-shop-qr.jpg" target="_blank" rel="noopener">查看二维码原图 →</a></div>
         </section>
+        <section class="douyin-entry shop-entry" aria-labelledby="dianping-shop-title">
+            <a class="shop-qr dianping-shop-qr" href="/upload/brand/zhongren-dianping-shop-qr.jpg" target="_blank" rel="noopener" aria-label="放大查看大众点评店铺二维码原图">
+                <img src="/upload/brand/zhongren-dianping-shop-qr.jpg" loading="lazy" alt="大众点评众人搬家公司店铺二维码，使用大众点评扫一扫">
+            </a>
+            <div><h2 id="dianping-shop-title">大众点评店铺</h2><p>众人搬家公司</p><p>打开大众点评扫一扫，或搜索“众人搬家公司”。</p><a class="douyin-profile-link" href="/upload/brand/zhongren-dianping-shop-qr.jpg" target="_blank" rel="noopener">查看二维码原图 →</a></div>
+        </section>
         <section class="douyin-entry shop-entry" aria-labelledby="jd-shop-title">
             <a class="shop-qr jd-shop-qr" href="/upload/brand/zhongren-jd-shop-qr.jpg" target="_blank" rel="noopener" aria-label="放大查看京东店铺二维码原图">
                 <img src="/upload/brand/zhongren-jd-shop-qr.jpg" alt="京东众人搬家运输专营店二维码，使用京东扫一扫">
@@ -72,12 +78,14 @@
         </section>
         </div>
         <style>
-        .platform-shop-entries{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
+        .platform-shop-entries{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;}
         .platform-shop-entries .douyin-entry{flex-direction:column;align-items:flex-start;gap:16px;min-width:0;}
         .platform-shop-entries .shop-qr{display:block;position:relative;overflow:hidden;width:180px;height:180px;background:#fff;flex-shrink:0;}
         .platform-shop-entries .shop-qr img{position:absolute;height:auto;max-width:none;}
         .platform-shop-entries .taobao-shop-qr img{width:601.5%;left:-72.5%;top:-710%;}
         .platform-shop-entries .jd-shop-qr img{width:203.2%;left:-51.6%;top:-152.7%;}
+        .platform-shop-entries .dianping-shop-qr img{width:218.18%;left:-59.09%;top:-114.55%;}
+        @media(min-width:761px) and (max-width:1100px){.platform-shop-entries{grid-template-columns:repeat(2,minmax(0,1fr));}}
         @media(max-width:760px){.platform-shop-entries{grid-template-columns:1fr;}}
         .douyin-entry{display:flex;align-items:center;gap:28px;padding-top:24px;padding-bottom:24px;color:#ccc;border-top:1px solid #383838;}
         .douyin-entry img{display:block;width:160px;height:auto;max-width:none;}

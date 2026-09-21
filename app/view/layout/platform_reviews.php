@@ -1,13 +1,13 @@
 <section class="center platform-reviews" aria-labelledby="platform-reviews-title">
     <h2 id="platform-reviews-title">第三方平台客户评价</h2>
-    <p class="review-intro">众人搬家在美团、淘宝、京东平台设有店铺，差评比例较低：美团428条评价仅1条低分，淘宝历史评价仅1条差评，京东多个服务商品已售1000+、对应商品好评率99%—100%。客户可通过下方截图和店铺查询方式查看具体反馈。</p>
+    <p class="review-intro">众人搬家在大众点评、淘宝、京东平台设有店铺，差评比例较低：大众点评428条评价仅1条低分，淘宝历史评价仅1条差评，京东多个服务商品已售1000+、对应商品好评率99%—100%。客户可通过下方截图和店铺查询方式查看具体反馈。</p>
     <div class="platform-review-grid">
         <article>
-            <h3>美团 · 众人搬家公司</h3>
+            <h3>大众点评 · 众人搬家公司</h3>
             <p class="review-highlight">428条评价，仅1条低分</p>
             <p>低分占比约<strong>0.23%</strong>，综合评分<strong>4.7分</strong>。</p>
-            <p class="review-search">打开美团，搜索<strong>“众人搬家公司”</strong>，查看店铺与客户评价。</p>
-            <a href="/upload/reviews/meituan-rating.png" target="_blank" rel="noopener" aria-label="查看美团评分截图原图"><img src="/upload/reviews/meituan-rating.png" loading="lazy" width="592" height="289" alt="美团众人搬家公司评价统计：综合评分4.7，全部428条，低分1条，消费后评价424条"></a>
+            <p class="review-search">打开大众点评，搜索<strong>“众人搬家公司”</strong>，查看店铺与客户评价。</p>
+            <a href="/upload/reviews/meituan-rating.png" target="_blank" rel="noopener" aria-label="查看大众点评评分截图原图"><img src="/upload/reviews/meituan-rating.png" loading="lazy" width="592" height="289" alt="大众点评众人搬家公司评价统计：综合评分4.7，全部428条，低分1条，消费后评价424条"></a>
         </article>
         <article>
             <h3>淘宝 · 广州众人搬家</h3>
@@ -24,7 +24,7 @@
             <a href="/upload/reviews/jd-sales.png" target="_blank" rel="noopener" aria-label="查看京东销量与好评率截图原图"><img src="/upload/reviews/jd-sales.png" loading="lazy" width="592" height="839" alt="京东众人搬家运输专营店商品列表：多个商品已售1000+，分别显示99%或100%好评"></a>
         </article>
     </div>
-    <p class="review-source">数据记录于2026年9月15日。美团按店铺评价统计，淘宝含历史评价，京东销量与好评率按各商品页面展示。截图摘自平台录屏，点击可查看原尺寸。</p>
+    <p class="review-source">数据记录于2026年9月15日。大众点评按店铺评价统计，淘宝含历史评价，京东销量与好评率按各商品页面展示。截图摘自平台录屏，点击可查看原尺寸。</p>
 </section>
 <style>
 .platform-reviews{margin-top:45px;margin-bottom:40px;color:#333;}
