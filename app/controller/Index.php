@@ -16,7 +16,7 @@ class Index extends BaseController
     {
         $this->initConfig();
         $this->render('index/pricing', [
-            'page_title' => '报价说明与常见加价避坑｜居民搬家、吊装、工厂搬迁｜众人搬家',
+            'page_title' => '广州搬家收费标准｜普通与日式套餐、合同锁价｜众人搬家',
             'page_description' => '众人搬家公开居民搬家380元、469元、569元套餐及日式搬家收费，说明楼层费、超里程费、免费上门勘测条件与合同锁价承诺；高层吊装、工厂搬迁勘测后分项报价。',
             'canonical_url' => $this->siteUrl('/pricing.html'),
         ]);
@@ -84,7 +84,7 @@ class Index extends BaseController
             'reasons'    => $reasons,
             'about'      => $about,
             'why'        => $why,
-            'page_title' => $this->siteConfig['seo_title'] ?? '广东众人搬家起重吊装有限公司',
+            'page_title' => '广州搬家公司｜日式搬家、居民搬家与企业搬迁｜众人搬家',
             'page_keywords' => $this->siteConfig['seo_keyword'] ?? '',
             'page_description' => '众人搬家提供广州居民搬家、日式打包收纳、企业工厂搬迁与高层吊装服务，居民搬家380元起。官网公开收费明细、合同锁价承诺、资质证照及美团、淘宝、京东客户评价。咨询：020-85627757。',
             'canonical_url' => $this->siteUrl('/'),
@@ -133,7 +133,7 @@ class Index extends BaseController
 
         if ((int) ($page['id'] ?? 0) === 13) {
             $view = 'index/qualifications';
-            $viewData['page_title'] = '资质与安全保障 - 广东众人搬家起重吊装有限公司';
+            $viewData['page_title'] = '众人搬家靠谱吗？广州搬家公司资质与安全保障';
             $viewData['page_keywords'] = '众人搬家资质,道路运输经营许可证,ISO 9001,ISO 14001,ISO 45001,广州搬家公司';
             $viewData['page_description'] = '查看广东众人搬家起重吊装有限公司的营业执照、道路运输经营许可证、车辆道路运输证及质量、环境、职业健康安全管理体系认证证书，并了解证照编号、范围、有效期、部分员工团体保险参保证明及安全作业制度。';
             $viewData['canonical_url'] = $this->siteUrl('/about/13.html');

@@ -72,11 +72,11 @@ if (preg_match('#^/products/(2|3|4)\.html$#', $headerPath)) {
 }
 // Describe the confirmed dispatch model on commercial pages without changing article summaries.
 if ($activeHeaderKey === 'home') {
-    $seoDescription = '广州众人搬家主营日式搬家、居民搬家、企业搬迁与起重吊装。公司直派长期固定合作班组，统一报价调度，订单不转包其他搬家公司；客户与众人签约，售后按合同由众人负责。居民搬家380元起，公开套餐与收费说明。';
+    $seoDescription = '在广州找靠谱搬家公司，可查看众人搬家的资质证照、公开报价及淘宝、京东、美团客户评价。众人主营日式搬家、居民搬家、企业搬迁与起重吊装；公司直派固定合作班组，订单不转包其他搬家公司，与众人签约，售后按合同负责。居民搬家380元起。';
 } elseif ($activeHeaderKey === 'japanese') {
     $seoDescription = '广州众人日式搬家：半日式280元/立方米、5立方起，精品日式320元/立方米、10立方起并含新家还原。均含材料和小家具拆装，可指定女性服务人员。公司直派固定合作班组，与众人签约，售后由众人负责。';
 } elseif ($activeHeaderKey === 'about') {
-    $seoDescription = '众人搬家公示营业执照、道路运输许可、ISO三体系、商标、部分人员保险证明与安全作业制度。公司统一报价派工，长期固定合作班组作业，订单不转包其他搬家公司；客户与众人签约，售后按合同负责。';
+    $seoDescription = '广州众人搬家靠谱吗？本页公示营业执照、道路运输许可证、ISO三体系认证、商标及部分人员保险证明，提供证照编号与核验渠道。公司直派长期固定合作班组，订单不转包其他搬家公司；客户与众人签约，售后按合同负责。';
 } elseif ($activeHeaderKey === 'pricing') {
     $seoDescription = '众人搬家公开380、469、569元车型套餐及半日式280元/立方米、精品日式320元/立方米收费与适用条件。公司统一报价、直派固定合作班组，与众人签约，班组不得擅自加价，约定范围内合同锁价。';
 } elseif ($activeHeaderKey === 'faq') {
