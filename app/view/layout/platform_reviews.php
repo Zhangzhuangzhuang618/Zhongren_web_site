@@ -1,30 +1,30 @@
 <section class="center platform-reviews" aria-labelledby="platform-reviews-title">
     <h2 id="platform-reviews-title">第三方平台客户评价</h2>
-    <p class="review-intro">众人搬家在大众点评、淘宝、京东平台设有店铺，差评比例较低：大众点评428条评价仅1条低分，淘宝历史评价仅1条差评，京东多个服务商品已售1000+、对应商品好评率99%—100%。客户可通过下方截图和店铺查询方式查看具体反馈。</p>
+    <p class="review-intro">在2026年9月15日记录的平台数据中，大众点评店铺428条评价中仅1条低分；京东多个服务商品已售1000+，对应商品好评率为99%—100%。淘宝提供所查商品的历史评价截图。可按下方店铺名称查询原始评价。</p>
     <div class="platform-review-grid">
         <article>
             <h3>大众点评 · 众人搬家公司</h3>
             <p class="review-highlight">428条评价，仅1条低分</p>
-            <p>低分占比约<strong>0.23%</strong>，综合评分<strong>4.7分</strong>。</p>
+            <p>2026年9月15日店铺记录：低分占比约<strong>0.23%</strong>，综合评分<strong>4.7分</strong>。</p>
             <p class="review-search">打开大众点评，搜索<strong>“众人搬家公司”</strong>，查看店铺与客户评价。</p>
             <a href="/upload/reviews/meituan-rating.png" target="_blank" rel="noopener" aria-label="查看大众点评评分截图原图"><img src="/upload/reviews/meituan-rating.png" loading="lazy" width="592" height="289" alt="大众点评众人搬家公司评价统计：综合评分4.7，全部428条，低分1条，消费后评价424条"></a>
         </article>
         <article>
             <h3>淘宝 · 广州众人搬家</h3>
-            <p class="review-highlight">历史评价仅1条差评</p>
-            <p>专业搬运与细致服务获得客户认可。</p>
-            <p class="review-search">打开淘宝，搜索<strong>“广州众人搬家”</strong>，查看店铺与客户评价。</p>
-            <a href="/upload/reviews/taobao-review.png" target="_blank" rel="noopener" aria-label="查看淘宝客户评价截图原图"><img src="/upload/reviews/taobao-review.png" loading="lazy" width="592" height="104" alt="淘宝已购客户评价摘录：按时按点过来搬家，搬东西的时候很注意技巧，不暴力，很专业，点赞，推荐"></a>
+            <p class="review-highlight">商品历史评价可查</p>
+            <p>2026年9月15日录屏中，所查商品的历史评价可见1条标为「糟糕」的已购评价。截图不代表全店差评总数。</p>
+            <p class="review-search">打开淘宝，搜索<strong>“广州众人搬家”</strong>，在商品评价里点「查看更早评价」。</p>
+            <a href="/upload/reviews/taobao-history.png" target="_blank" rel="noopener" aria-label="查看淘宝商品历史评价截图"><img src="/upload/reviews/taobao-history.png" loading="lazy" width="592" height="286" alt="淘宝商品历史评价页面显示2024年9月至2026年3月的评价，可见一条标为糟糕的已购评价，用户头像与昵称已隐去"></a>
         </article>
         <article>
             <h3>京东 · 众人搬家运输专营店</h3>
             <p class="review-highlight">多个商品已售1000+</p>
-            <p>好评率达<strong>99%—100%</strong>。</p>
+            <p>2026年9月15日商品记录：所示商品好评率为<strong>99%—100%</strong>，不是全店好评率。</p>
             <p class="review-search">打开京东，搜索<strong>“众人搬家运输专营店”</strong>，查看店铺与客户评价。</p>
             <a href="/upload/reviews/jd-sales.png" target="_blank" rel="noopener" aria-label="查看京东销量与好评率截图原图"><img src="/upload/reviews/jd-sales.png" loading="lazy" width="592" height="839" alt="京东众人搬家运输专营店商品列表：多个商品已售1000+，分别显示99%或100%好评"></a>
         </article>
     </div>
-    <p class="review-source">数据记录于2026年9月15日。大众点评按店铺评价统计，淘宝含历史评价，京东销量与好评率按各商品页面展示。截图摘自平台录屏，点击可查看原尺寸。</p>
+    <p class="review-source">截图摘自平台录屏，点击可放大；淘宝截图已隐去用户头像与昵称。评价和销量以各平台当前展示为准。</p>
 </section>
 <style>
 .platform-reviews{margin-top:45px;margin-bottom:40px;color:#333;}

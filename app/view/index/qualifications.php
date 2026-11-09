@@ -122,7 +122,15 @@ $managementCards = [
                     <dl><?php foreach ($card['facts'] as $label => $value): ?>
                         <div><dt><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?></dt><dd><?= htmlspecialchars($value, ENT_QUOTES, 'UTF-8') ?></dd></div>
                     <?php endforeach; ?></dl>
-                    <p>核验渠道：<?php if ($card['title'] === '营业执照'): ?><a href="https://www.gsxt.gov.cn/" target="_blank" rel="noopener">国家企业信用信息公示系统</a>，按公司名称或统一社会信用代码查询。<?php else: ?>按证件编号向证件所载交通运输主管部门核验。<?php endif; ?></p>
+                    <p>核验渠道：
+                        <?php if ($card['title'] === '营业执照'): ?>
+                            <a href="https://www.gsxt.gov.cn/" target="_blank" rel="noopener">国家企业信用信息公示系统</a>，按公司全称或统一社会信用代码查询。
+                        <?php elseif ($card['title'] === '道路运输经营许可证'): ?>
+                            <a href="https://app.gjzwfw.gov.cn/jmopen/webapp/html5/jtbdlyzyh/index.html" target="_blank" rel="noopener">交通运输部道路运政经营业户查询</a>，选择「经营许可证号查询」，按证面填写许可证号并输入验证码。
+                        <?php else: ?>
+                            <a href="https://app.gjzwfw.gov.cn/jmopen/webapp/html5/jtbdlyzcl/index.html" target="_blank" rel="noopener">交通运输部道路运政营运车辆查询</a>，选择「道路运输证」，按证面填写运输证号并输入验证码。
+                        <?php endif; ?>
+                    </p>
                 </div>
             </article>
             <?php endforeach; ?>
