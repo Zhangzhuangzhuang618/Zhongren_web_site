@@ -55,6 +55,7 @@ class Products extends BaseController
         if ($id === 2) {
             $detail['title'] = '广州办公室搬迁';
             $detail['seo_title'] = '广州办公室搬迁｜设备保护、分项报价与验收｜众人搬家';
+            $detail['seo_keyword'] = '广州办公室搬迁,企业总部搬迁,办公设备搬运,众人搬家';
             $detail['seo_content'] = '众人搬家提供广州办公室及企业总部搬迁。按工位、电脑、档案和办公家具确认搬迁清单，提前核对两端场地、作业时间和报价，按分区编号搬运并逐项验收。';
         } elseif ($id === 15) {
             $detail['title'] = '广州日式搬家｜打包、搬运与新家还原｜众人搬家';
@@ -64,7 +65,8 @@ class Products extends BaseController
             $detail['image'] = '/upload/brand/japanese-moving-books.jpg';
         }
 
-        $this->render($id === 15 ? 'products/japanese' : 'products/detail', array_merge($this->getProductTemplateData($detail['nav_id'] ?? 0), [
+        $templateData = in_array($id, [2, 15], true) ? [] : $this->getProductTemplateData($detail['nav_id'] ?? 0);
+        $this->render($id === 15 ? 'products/japanese' : 'products/detail', array_merge($templateData, [
             'detail'     => $detail,
             'isOfficeMoving' => $id === 2,
             'banner'     => ($currentNav['image'] ?? '') ?: '/upload/20240510/bacfd59f43877ced86eca6d241385b84.jpg',
@@ -140,7 +142,6 @@ class Products extends BaseController
                 'sort ASC, id DESC'
             ),
             'HFF'  => $this->getExpandSection(70),
-            'CX'   => $this->getExpandSection(37),
             'BDTS' => $this->getExpandSection(43),
             'CJWT' => $this->getExpandSection(52),
             'why'  => $this->getExpandSection(3),

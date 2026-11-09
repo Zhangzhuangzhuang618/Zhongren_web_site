@@ -107,7 +107,7 @@ $reasons = [
     ['先进设备','配备了先进的搬家设备和工具，如搬家车、升降机等','/upload/20250113/61a2e356be620c01651733a23ef774e7.png'],
     ['丰富经验','每位至少有5年的搬迁经验，长期积累了整套搬运经验','/upload/20250113/b8655e050808c20dae806398035e8766.png'],
     ['一站式服务','完善的一站式搬迁配套服务','/upload/20250113/6fad1ce60bb2424e000af85a5f851064.png'],
-    ['搬迁标准','搬家搬迁行业标准化，精细搬运，粗细归置','/upload/20250113/3ccb17a9b2ad332f104a74adb2ea315b.png'],
+    ['搬迁标准','物品分类打包，按约定位置摆放','/upload/20250113/3ccb17a9b2ad332f104a74adb2ea315b.png'],
     ['服务保障','收费标准明码标价，不乱收费，不乱加价','/upload/20250113/7fb442ecf24de88fffc877f65fc8247d.png'],
 ];
 $stmt = $db->prepare("INSERT INTO zw_cms_expand (title,sketch,minimg,pid) VALUES (?,?,?,3)");

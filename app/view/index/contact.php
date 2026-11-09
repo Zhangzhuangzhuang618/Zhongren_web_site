@@ -66,18 +66,21 @@
 .contact-shop-codes .contact-shop-qr-taobao img{width:601.5%;left:-72.5%;top:-710%;}
 .contact-shop-codes .contact-shop-qr-dianping img{width:218.18%;left:-59.09%;top:-114.55%;}
 .contact-shop-codes .contact-shop-qr-jd img{width:203.2%;left:-51.6%;top:-152.7%;}
+.contact-service-areas{line-height:1.8;scroll-margin-top:120px;}
+.contact-service-areas h2{font-size:20px;line-height:1.5;font-weight:600;margin:0 0 8px;}
+.contact-service-areas p{margin:0;}
+.contact-service-areas p + p{margin-top:8px;}
+.contact-service-areas a{color:#b32c23;text-decoration:underline;text-underline-offset:3px;}
 @media(max-width:480px){.contact-shop-codes{gap:10px;}.contact-shop-codes>a{width:calc((100% - 20px)/3);}.contact-shop-qr{width:88px;height:88px;}}
 </style>
 
 <div>
     <div class="wow fadeInUp" data-wow-delay="0.1s">
-        <div class="center">
-            <div class="title-top clearfix mt45">
-                <h2 id="service-areas" class="fs-18" style="scroll-margin-top:120px">广州搬家服务范围</h2>
-                <p>众人搬家服务覆盖天河、海珠、白云、番禺、越秀、荔湾、黄埔、花都、增城、南沙、从化。跨市搬家可提供搬出和搬入地址、楼层、电梯及物品清单，由众人确认服务安排和费用。</p>
-                <p><a href="/pricing.html">查看广州搬家套餐和里程收费 →</a></p>
-            </div>
-        </div>
+        <section id="service-areas" class="center contact-service-areas mt45" aria-labelledby="service-areas-title">
+            <h2 id="service-areas-title">广州搬家服务范围</h2>
+            <p>众人搬家服务覆盖天河、海珠、白云、番禺、越秀、荔湾、黄埔、花都、增城、南沙、从化。跨市搬家可提供搬出和搬入地址、楼层、电梯及物品清单，由众人确认服务安排和费用。</p>
+            <p><a href="/pricing.html">查看广州搬家套餐和里程收费 →</a></p>
+        </section>
         <div class="hot-city-box pd25 bgfff clearfix center mt20">
             <div id="dot-box" class="dot-box mt40 masonry">
                 <?php

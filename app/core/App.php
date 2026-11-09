@@ -19,6 +19,16 @@ class App
      */
     public function run()
     {
+        $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+        if ($method === 'GET' || $method === 'HEAD') {
+            $requestUrl = $_SERVER['REQUEST_URI'] ?? '/';
+            $canonicalUrl = PublicUrl::canonicalize($requestUrl);
+            if ($canonicalUrl !== $requestUrl) {
+                header('Location: ' . $canonicalUrl, true, 301);
+                return;
+            }
+        }
+
         // 解析URL
         $path = $this->parseUrl();
 

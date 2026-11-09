@@ -100,7 +100,7 @@
                 <ul>
                     <?php if (!empty($aboutNavs)): ?>
                     <?php foreach ($aboutNavs as $aboutItem): ?>
-                    <a href="/about/<?= $aboutItem['id'] ?>.html" target="_self">
+                    <a href="<?= \app\core\PublicUrl::canonicalize('/about/' . (int) $aboutItem['id'] . '.html') ?>" target="_self">
                         <li>
                             <p><i class="icon" style="background-image: url(<?= $aboutItem['icon'] ?? '' ?>)"></i></p>
                             <p class="mt10 fs-14"><?= (int) $aboutItem['id'] === 13 ? '资质与安全保障' : $aboutItem['title'] ?></p>
@@ -185,7 +185,7 @@
                     <?php foreach ($caseTabs as $index => $tab): ?>
                     <li class="case-tab <?= $index === 0 ? 'active' : '' ?>"><?= $tab['name'] ?></li>
                     <?php endforeach; ?>
-                    <li><a href="/cases.html">更多</a></li>
+                    <li><a href="/cases/6.html">更多</a></li>
                 </ul>
                 <div class="border3"></div>
             </div>

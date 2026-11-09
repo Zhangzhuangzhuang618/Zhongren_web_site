@@ -1,6 +1,7 @@
 <?php
 namespace app\controller;
 
+use app\core\PublicUrl;
 use app\model\CmsArticle;
 use app\model\CmsCases;
 use app\model\CmsNav;
@@ -34,7 +35,10 @@ class Sitemap extends BaseController
         header('Content-Type: application/xml; charset=utf-8');
         echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
         echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+        $seen = [];
         foreach ($urls as $url) {
+            if (isset($seen[$url['loc']])) continue;
+            $seen[$url['loc']] = true;
             echo '<url><loc>' . htmlspecialchars($url['loc'], ENT_XML1 | ENT_QUOTES, 'UTF-8') . '</loc>';
             if (!empty($url['lastmod'])) echo '<lastmod>' . htmlspecialchars($url['lastmod'], ENT_XML1 | ENT_QUOTES, 'UTF-8') . '</lastmod>';
             echo '<changefreq>weekly</changefreq></url>';
@@ -55,7 +59,7 @@ class Sitemap extends BaseController
         $id = (int)($nav['id'] ?? 0);
         if ($model === 'index') return '';
         if (in_array($model, ['products', 'news', 'cases', 'about', 'contact'], true) && $id > 0) {
-            return '/' . $model . '/' . $id . '.html';
+            return PublicUrl::canonicalize('/' . $model . '/' . $id . '.html');
         }
         return '';
     }

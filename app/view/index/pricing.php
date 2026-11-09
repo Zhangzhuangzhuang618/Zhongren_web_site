@@ -10,10 +10,10 @@
     <section id="residential">
         <h2>居民搬家：车型套餐与日式服务</h2>
         <p>以下三种车型套餐均包含装车、运输、卸车。包装材料、特殊物品及其他增项应在作业前列入报价单。</p>
-        <div class="pricing-table"><table><caption>居民搬家车型套餐</caption><thead><tr><th>车型</th><th>套餐价格</th><th>人员</th><th>包含运输里程</th></tr></thead><tbody>
-            <tr><th>大型面包车</th><td><strong>380元</strong></td><td>2人</td><td><strong>10公里</strong></td></tr>
-            <tr><th>小型厢式货车</th><td><strong>469元</strong></td><td>2—3人</td><td><strong>10公里</strong></td></tr>
-            <tr><th>大型厢式货车</th><td><strong>569元</strong></td><td>3人</td><td><strong>50公里</strong></td></tr>
+        <div class="pricing-table pricing-vehicle-table"><table><caption>居民搬家车型套餐</caption><thead><tr><th scope="col">车型</th><th scope="col">套餐价格</th><th scope="col">人员</th><th scope="col">包含运输里程</th></tr></thead><tbody>
+            <tr><th scope="row">大型面包车</th><td><strong>380元</strong></td><td>2人</td><td><strong>10公里</strong></td></tr>
+            <tr><th scope="row">小型厢式货车</th><td><strong>469元</strong></td><td>2—3人</td><td><strong>10公里</strong></td></tr>
+            <tr><th scope="row">大型厢式货车</th><td><strong>569元</strong></td><td>3人</td><td><strong>50公里</strong></td></tr>
         </tbody></table></div>
         <p><strong>以上三种车型套餐超出包含里程的部分，统一按7元／公里计费。</strong></p>
         <h3>报价单算例：普通搬家运输15公里</h3>

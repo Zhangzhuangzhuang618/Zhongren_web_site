@@ -69,7 +69,7 @@ class Index extends BaseController
         $aboutNavs = $navModel->select(['pid' => $aboutParent['id'] ?? 0, 'status' => 1], '*', 'sort ASC');
 
         // "选择我们的理由"扩展数据
-        $reasons = $expandModel->getByParent(3, 'reasons');
+        $reasons = $expandModel->getByParent(3);
         $reasonOrder = [4, 6, 5, 7, 8, 9];
         usort($reasons, static fn(array $a, array $b): int => array_search((int) $a['id'], $reasonOrder, true) <=> array_search((int) $b['id'], $reasonOrder, true));
         $about = $expandModel->find(1) ?: [];

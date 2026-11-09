@@ -1,7 +1,7 @@
 </main>
 <!-- 品牌横幅与服务展示，替换旧宣传图和规模数据 -->
 <div class="brand-service-showcase">
-    <a href="/products.html" aria-label="了解众人搬家四类服务">
+    <a href="/products/2.html" aria-label="了解众人搬家四类服务">
         <img src="<?= htmlspecialchars($assetUrl('/upload/brand/zhongren-service-overview.jpg'), ENT_QUOTES, 'UTF-8') ?>" width="2172" height="724" loading="lazy" alt="众人搬家服务示意：居民搬家装车运输卸车、企业设备物资搬迁、高层吊装现场勘测与方案确认、打包收纳分类整理与包装防护">
     </a>
 </div>
@@ -88,7 +88,7 @@
             <div class="n-footer-left">
                 <ul class="n-footer-nav clearfix">
                     <?php foreach ($foot_nav as $item): ?>
-                    <li><a href="<?= $item['href'] ?: '/' . $item['url_model'] . '/' . $item['id'] . '.html' ?>"><?= $item['title'] ?></a></li>
+                    <li><a href="<?= htmlspecialchars(\app\core\PublicUrl::canonicalize($item['href'] ?: '/' . $item['url_model'] . '/' . $item['id'] . '.html'), ENT_QUOTES, 'UTF-8') ?>"><?= $item['title'] ?></a></li>
                     <?php endforeach; ?>
                     <li><a href="/faq.html">常见问题 FAQ</a></li>
                 </ul>
@@ -138,8 +138,8 @@
 <!-- 底部固定导航（移动端） -->
 <div class="app_foot_box"></div>
 <div class="fixedBot">
-    <a href="/index.html" class="fixed-link"><img src="/static/home/images/icon_home.png" alt=""><div class="fixed-title">官方首页</div></a>
-    <a href="/products.html" class="fixed-link"><img src="/static/home/images/icon_product.png" alt=""><div class="fixed-title">产品中心</div></a>
+    <a href="/" class="fixed-link"><img src="/static/home/images/icon_home.png" alt=""><div class="fixed-title">官方首页</div></a>
+    <a href="/products/2.html" class="fixed-link"><img src="/static/home/images/icon_product.png" alt=""><div class="fixed-title">产品中心</div></a>
     <a href="tel:<?= preg_replace('/\D+/', '', (string) $site['mobile']) ?>" class="fixed-link"><img src="/static/home/images/icon_tel2.png" alt=""><div class="fixed-title">电话咨询</div></a>
     <a href="javascript:;" class="fixed-link" onclick="goTop()"><img src="/static/home/images/icon_gotop2.png" alt=""><div class="fixed-title">返回顶部</div></a>
 </div>

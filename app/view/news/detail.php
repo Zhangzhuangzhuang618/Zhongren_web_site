@@ -9,7 +9,7 @@
         <article class="news-article boxsh wow fadeInUp" data-wow-delay="0.1s">
             <header class="title mt10">
                 <h1><?= htmlspecialchars($detail['title'], ENT_QUOTES, 'UTF-8') ?></h1>
-                <p class="c888 mt10 fs-12"><span class="mr20">内容来源：广东众人搬家起重吊装有限公司</span><time datetime="<?= date('c', (int) $detail['create_time']) ?>">更新时间：<?= date('Y-m-d H:i:s', (int) $detail['create_time']) ?></time></p>
+                <p class="c888 mt10 fs-12"><span class="mr20">内容来源：广东众人搬家起重吊装有限公司</span><time datetime="<?= date('c', (int) $detail['create_time']) ?>">发布时间：<?= date('Y-m-d H:i:s', (int) $detail['create_time']) ?></time></p>
             </header>
             <div class="article-box mt25 fs-14 pb20"><?= html_entity_decode($detail['content'] ?? '') ?></div>
             <nav class="prev-next over-hidden border-top pt20 line-height-2" aria-label="文章翻页">

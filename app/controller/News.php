@@ -14,7 +14,7 @@ class News extends BaseController
 
         $rootNav = $navModel->findWhere(['url_model' => 'news', 'pid' => 0])
             ?: $navModel->findWhere(['url_model' => 'news']);
-        // /news/7.html is the historical root-news URL and must show every category.
+        // The root news page aggregates every category.
         $isAggregate = $id === null || ($rootNav && $id === (int) $rootNav['id']);
         $currentNav = $isAggregate ? $rootNav : $navModel->find($id);
         if (!$currentNav) {
@@ -58,7 +58,22 @@ class News extends BaseController
         $detail = $articleModel->find($id);
 
         if (!$detail) {
-            $this->redirect('/news');
+            $this->redirect('/news.html');
+            return;
+        }
+
+        if (($detail['target'] ?? '') === 'merged_article' && (int) $detail['status'] === 0) {
+            $destination = $detail['link'] ?? '';
+            $match = [];
+            if (preg_match('#^/detail/news([1-9][0-9]*)\.html$#D', $destination, $match) && (int) $match[1] !== $id) {
+                $main = $articleModel->find((int) $match[1], 'status, delete_time, target');
+                if ($main && (int) $main['status'] === 1 && $main['delete_time'] === null && $main['target'] !== 'merged_article') {
+                    $query = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_QUERY);
+                    $this->redirect($destination . ($query ? '?' . $query : ''), 301);
+                }
+            }
+            http_response_code(404);
+            $this->render('error/404', ['page_title' => '404']);
             return;
         }
 
@@ -100,7 +115,7 @@ class News extends BaseController
                     'mainEntityOfPage' => $this->currentUrl(),
                     'headline' => $detail['title'],
                     'datePublished' => date(DATE_ATOM, (int)$detail['create_time']),
-                    'dateModified' => date(DATE_ATOM, (int)$detail['create_time']),
+                    'dateModified' => date(DATE_ATOM, max((int) $detail['create_time'], (int) $detail['update_time'])),
                     'author' => ['@type' => 'Organization', 'name' => $this->siteConfig['company_name'] ?? '广东众人搬家起重吊装有限公司'],
                     'publisher' => ['@id' => $this->siteUrl('/#organization')],
                     'image' => $this->absoluteUrl($detail['image'] ?? ''),

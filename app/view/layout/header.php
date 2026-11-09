@@ -22,11 +22,11 @@ foreach ($nav as $navItem) {
 }
 $navHref = static function (int $id) use ($navById): string {
     $item = $navById[$id] ?? [];
-    return $item['href'] ?: '/' . ($item['url_model'] ?? 'index') . '.html';
+    return \app\core\PublicUrl::canonicalize(($item['href'] ?? '') ?: '/' . ($item['url_model'] ?? 'index') . '.html');
 };
 $productHref = static fn (int $id): string => '/detail/products' . $id . '.html';
 $headerMenu = [
-    ['key' => 'home', 'title' => '首页', 'href' => $navHref(1)],
+    ['key' => 'home', 'title' => '首页', 'href' => '/'],
     ['key' => 'personal', 'title' => '个人搬家', 'href' => $navHref(2), 'children' => [
         ['title' => '同城搬家', 'href' => $navHref(2)], ['title' => '跨市搬家', 'href' => $navHref(3)], ['title' => '出国搬家', 'href' => $navHref(4)],
         ['title' => '日式搬家', 'href' => $productHref(15)], ['title' => '收纳整理', 'href' => $productHref(18)], ['title' => '家居拆装', 'href' => $productHref(19)],
@@ -43,7 +43,7 @@ $headerMenu = [
     ['key' => 'about', 'title' => '资质与安全保障', 'href' => '/about/13.html'],
     ['key' => 'pricing', 'title' => '报价说明', 'href' => '/pricing.html'],
     ['key' => 'faq', 'title' => '常见问题', 'href' => '/faq.html'],
-    ['key' => 'reviews', 'title' => '客户评价', 'href' => '/index.html#platform-reviews-title'],
+    ['key' => 'reviews', 'title' => '客户评价', 'href' => '/#platform-reviews-title'],
     ['key' => 'cases', 'title' => '服务案例', 'href' => $navHref(6)],
     ['key' => 'news', 'title' => '新闻资讯', 'href' => $navHref(7)],
     ['key' => 'contact', 'title' => '联系众人', 'href' => $navHref(8)],
@@ -142,7 +142,7 @@ if ($activeHeaderKey === 'home') {
             <div class="header-top-right">
                 <ul>
                     <li><a href="tel:<?= preg_replace('/\D+/', '', (string) $site['phone']) ?>">在线客服</a></li>
-                    <li><a href="/contact.html">联系众人</a></li>
+                    <li><a href="/contact/8.html">联系众人</a></li>
                     <li class="top-tel"><span>咨询热线：<a href="tel:<?= preg_replace('/\D+/', '', (string) $site['phone']) ?>"><?= $site['phone'] ?></a></span></li>
                 </ul>
             </div>

@@ -1,7 +1,7 @@
 <?php include VIEW_PATH . 'layout/header.php'; ?>
 <link rel="stylesheet" href="<?= htmlspecialchars($assetUrl('/static/home/css/about.css'), ENT_QUOTES, 'UTF-8') ?>">
 <div class="page-banner"><img src="<?= htmlspecialchars($assetUrl($banner), ENT_QUOTES, 'UTF-8') ?>" class="w100 block" alt=""></div>
-<div><div class="about_nav_2"><ul class="center clearfix"><?php foreach ($classify as $item): ?><a href="<?= $item['href'] ?: '/about/' . $item['id'] . '.html' ?>" target="<?= $item['target'] ?: '_self' ?>"><li class="df ac jc"><span class="icon" style="background-image: url(<?= $item['icon'] ?>);"></span><span><?= (int) $item['id'] === 13 ? '资质与安全保障' : $item['title'] ?></span></li></a><?php endforeach; ?></ul></div></div>
+<div><div class="about_nav_2"><ul class="center clearfix"><?php foreach ($classify as $item): ?><a href="<?= htmlspecialchars(\app\core\PublicUrl::canonicalize($item['href'] ?: '/about/' . $item['id'] . '.html'), ENT_QUOTES, 'UTF-8') ?>" target="<?= $item['target'] ?: '_self' ?>"><li class="df ac jc"><span class="icon" style="background-image: url(<?= $item['icon'] ?>);"></span><span><?= (int) $item['id'] === 13 ? '资质与安全保障' : $item['title'] ?></span></li></a><?php endforeach; ?></ul></div></div>
 <div>
     <div class="wow fadeInUp" data-wow-delay="0.1s">
         <div class="center">
