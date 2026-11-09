@@ -26,17 +26,7 @@
             </div>
             <div class="n-footer-con clearfix center">
                 <div class="footer-slide">
-                    <a href="https://tianhe.zrbanjia.com/">天河搬家</a>
-                    <a href="https://haizhu.zrbanjia.com/">海珠搬家</a>
-                    <a href="https://baiyun.zrbanjia.com/">白云搬家</a>
-                    <a href="https://panyu.zrbanjia.com/">番禺搬家</a>
-                    <a href="https://yuexiu.zrbanjia.com/">越秀搬家</a>
-                    <a href="https://liwan.zrbanjia.com/">荔湾搬家</a>
-                    <a href="https://huangpu.zrbanjia.com/">黄埔搬家</a>
-                    <a href="https://huadu.zrbanjia.com/">花都搬家</a>
-                    <a href="https://zengcheng.zrbanjia.com/">增城搬家</a>
-                    <a href="https://nansha.zrbanjia.com/">南沙搬家</a>
-                    <a href="https://conghua.zrbanjia.com/">从化搬家</a>
+                    <a href="/contact/8.html#service-areas">广州各区搬家服务范围与预约</a>
                 </div>
                 <div class="footer-slide">
                     <?php foreach ($footer_services as $service): ?>
@@ -161,7 +151,7 @@
         <div class="container">
             <div class="box1">
                 <div class="left-box">
-                    <h1><span>日式搬家</span>价格估算</h1>
+                    <h2 class="quote-popup-title"><span>日式搬家</span>价格估算</h2>
                     <p>本计算器仅用于半日式与日式精品搬家，按物品体积计费，不适用于普通搬家车型套餐。</p>
                     <p>日式搬家面包车、厢式货车含30公里，4.2米厢式货车含50公里。普通搬家380元、469元套餐含10公里，569元套餐含50公里。<a href="/pricing.html">查看普通搬家套餐与完整收费说明</a></p>
                     <div class="inside-box quote-calculator">

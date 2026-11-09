@@ -71,6 +71,13 @@ class News extends BaseController
         $currentNav = $navModel->find($detail['nav_id'] ?? 0) ?: [];
         $parentNav = !empty($currentNav['pid']) ? ($navModel->find((int) $currentNav['pid']) ?: []) : $currentNav;
         $classify = $navModel->select(['pid' => ($currentNav['pid'] ?: $currentNav['id'] ?? 0), 'status' => 1], '*', 'sort ASC');
+        $description = '';
+        foreach (['seo_content', 'sketch', 'content'] as $field) {
+            $plain = strip_tags(html_entity_decode((string) ($detail[$field] ?? ''), ENT_QUOTES, 'UTF-8'));
+            $description = trim(preg_replace('/\s+/u', ' ', $plain) ?? '');
+            if ($description !== '') break;
+        }
+        if (mb_strlen($description) > 160) $description = mb_substr($description, 0, 159) . '…';
 
         $this->render('news/detail', array_merge($this->getNewsSidebar(), [
             'detail'     => $detail,
@@ -83,7 +90,7 @@ class News extends BaseController
             'canonical_url' => $this->siteUrl('/detail/news' . $id . '.html'),
             'page_title'      => $detail['seo_title'] ?: $this->seoTitle($detail['title']),
             'page_keywords'   => $detail['seo_keyword'] ?? '',
-            'page_description'=> $detail['seo_content'] ?? '',
+            'page_description'=> $description,
             'page_type'       => 'article',
             'page_image'      => $detail['image'] ?? '',
             'structured_data' => array_merge([
@@ -97,7 +104,7 @@ class News extends BaseController
                     'author' => ['@type' => 'Organization', 'name' => $this->siteConfig['company_name'] ?? '广东众人搬家起重吊装有限公司'],
                     'publisher' => ['@id' => $this->siteUrl('/#organization')],
                     'image' => $this->absoluteUrl($detail['image'] ?? ''),
-                    'description' => $detail['seo_content'] ?: ($detail['sketch'] ?: mb_substr(trim(strip_tags(html_entity_decode($detail['content'] ?? ''))), 0, 160)),
+                    'description' => $description,
                     'inLanguage' => 'zh-CN',
                 ],
             ], $this->breadcrumbSchema([

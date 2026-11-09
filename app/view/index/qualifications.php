@@ -69,7 +69,13 @@ $managementCards = [
     <section class="qualification-intro center" aria-labelledby="qualification-title">
         <p class="qualification-eyebrow">广东众人搬家起重吊装有限公司</p>
         <h1 id="qualification-title">资质与安全保障</h1>
-        <h2>广州众人搬家靠谱吗？先看资质、合同与客户评价</h2>
+        <h2>广州搬家公司怎么选？先核对这四项</h2>
+        <ol style="list-style:decimal;padding-left:24px;line-height:2">
+            <li>核对签约公司全称、营业执照和道路运输经营许可；涉及吊装时，另确认对应作业人员和现场方案。</li>
+            <li>核对书面报价是否列清物品、车型、里程、两端楼层及拆装等增项。<a href="/pricing.html#extras">查看众人报价明细</a></li>
+            <li>问清由谁派工、谁签合同、物品受损找谁，并把责任写入合同。<a href="#dispatch-assurance">查看众人签约与售后安排</a></li>
+            <li>结合相似项目和平台评价核验服务能力。<a href="/cases/6.html">查看案例</a>、<a href="/#platform-reviews-title">查看平台评价与店铺名称</a>。</li>
+        </ol>
         <p>广东众人搬家起重吊装有限公司在本页公开营业执照、道路运输许可、ISO三体系认证及部分人员保险证明，证照编号与核验渠道列示如下。公司直派长期固定合作班组，订单不转包其他搬家公司；客户与众人签约，售后按合同由众人负责。预约前可核对<a href="/pricing.html">套餐费用与合同锁价承诺</a>，也可查看<a href="/index.html#platform-reviews-title">淘宝、京东、大众点评客户评价及店铺查询方式</a>。</p>
         <h2>广东众人搬家资质总览清单</h2>
         <ul style="list-style:disc;padding-left:24px;line-height:2">

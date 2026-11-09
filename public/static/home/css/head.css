@@ -1477,13 +1477,13 @@ li {
     background: #fff
 }
 
-.left-box h1 {
+#Popup .quote-popup-title {
     font-size: 26px;
     color: #e53025;
     font-weight: 600
 }
 
-.left-box h1 span {
+#Popup .quote-popup-title span {
     color: #444
 }
 
@@ -2457,7 +2457,7 @@ a.clients-left {
     z-index: 1
 }
 
-.title-top p:nth-child(1), .title-top h2:nth-child(1) {
+.title-top p:nth-child(1), .title-top h1:nth-child(1), .title-top h2:nth-child(1) {
     font-size: 18px;
     float: left;
     margin: 0;

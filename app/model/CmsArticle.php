@@ -5,6 +5,13 @@ class CmsArticle extends BaseModel
 {
     protected $table = 'cms_article';
 
+    public function getSitemapEntries(): array
+    {
+        $sql = 'SELECT id, update_time, create_time FROM ' . $this->table()
+            . ' WHERE status = 1 AND delete_time IS NULL ORDER BY id DESC';
+        return $this->connection->query($sql)->fetchAll();
+    }
+
     public function getListByNav(int $navId, int $page = 1, int $pageSize = 12): array
     {
         return $this->paginate(

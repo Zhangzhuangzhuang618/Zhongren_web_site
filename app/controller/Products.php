@@ -52,7 +52,11 @@ class Products extends BaseController
         $navModel = new CmsNav();
         $currentNav = $navModel->find($detail['nav_id'] ?? 0) ?: [];
 
-        if ($id === 15) {
+        if ($id === 2) {
+            $detail['title'] = '广州办公室搬迁';
+            $detail['seo_title'] = '广州办公室搬迁｜设备保护、分项报价与验收｜众人搬家';
+            $detail['seo_content'] = '众人搬家提供广州办公室及企业总部搬迁。按工位、电脑、档案和办公家具确认搬迁清单，提前核对两端场地、作业时间和报价，按分区编号搬运并逐项验收。';
+        } elseif ($id === 15) {
             $detail['title'] = '广州日式搬家｜打包、搬运与新家还原｜众人搬家';
             $detail['seo_title'] = $detail['title'];
             $detail['seo_keyword'] = '广州日式搬家,众人搬家,半日式搬家,日式精品搬家,打包收纳,新家还原';
@@ -62,6 +66,7 @@ class Products extends BaseController
 
         $this->render($id === 15 ? 'products/japanese' : 'products/detail', array_merge($this->getProductTemplateData($detail['nav_id'] ?? 0), [
             'detail'     => $detail,
+            'isOfficeMoving' => $id === 2,
             'banner'     => ($currentNav['image'] ?? '') ?: '/upload/20240510/bacfd59f43877ced86eca6d241385b84.jpg',
             'p_active'   => 1,
             'canonical_url' => $this->siteUrl('/detail/products' . $id . '.html'),

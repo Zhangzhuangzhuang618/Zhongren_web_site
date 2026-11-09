@@ -11,7 +11,7 @@ class Sitemap extends BaseController
     public function index(): void
     {
         $urls = [
-            ['loc' => $this->siteUrl('/'), 'lastmod' => date('c')],
+            ['loc' => $this->siteUrl('/')],
             ['loc' => $this->siteUrl('/faq.html')],
             ['loc' => $this->siteUrl('/pricing.html')],
         ];
@@ -24,7 +24,7 @@ class Sitemap extends BaseController
         foreach ((new CmsProduct())->select(['status' => 1], 'id, update_time, create_time', 'id DESC') as $item) {
             $urls[] = ['loc' => $this->siteUrl('/detail/products' . $item['id'] . '.html'), 'lastmod' => $this->lastModified($item)];
         }
-        foreach ((new CmsArticle())->select(['status' => 1], 'id, update_time, create_time', 'id DESC') as $item) {
+        foreach ((new CmsArticle())->getSitemapEntries() as $item) {
             $urls[] = ['loc' => $this->siteUrl('/detail/news' . $item['id'] . '.html'), 'lastmod' => $this->lastModified($item)];
         }
         foreach ((new CmsCases())->select(['status' => 1], 'id, update_time, create_time', 'id DESC') as $item) {
@@ -42,10 +42,11 @@ class Sitemap extends BaseController
         echo '</urlset>';
     }
 
-    private function lastModified(array $item): string
+    private function lastModified(array $item): ?string
     {
-        $time = (int)($item['update_time'] ?: $item['create_time'] ?: time());
-        return date('c', $time);
+        $time = (int)($item['update_time'] ?? 0);
+        if ($time <= 0) $time = (int)($item['create_time'] ?? 0);
+        return $time > 0 ? date('c', $time) : null;
     }
 
     private function navPath(array $nav): string

@@ -18,10 +18,10 @@
 	padding:20px;
 }
 
-.top-img h1{
+.top-img .package-title{
 	position: relative;
 }
-.top-img h1:after{
+.top-img .package-title:after{
 	content: '';
 	width: 36px;
 	height: 2px;
@@ -296,10 +296,10 @@
 		height: auto;
 		padding: 15px;
 	}
-	.top-img h1 {
+	.top-img .package-title {
 		font-size: 16px;
 	}
-	.top-img h1:after {
+	.top-img .package-title:after {
 		bottom: -6px;
 	}
 	.top-img .cc{

@@ -114,7 +114,7 @@
                 <?php foreach ($service_cities as $cityName => $cityPhone): ?>
                 <p><?= $cityName ?> <a href="tel:<?= preg_replace('/\D+/', '', (string) $cityPhone) ?>"><?= $cityPhone ?></a></p>
                 <?php endforeach; ?>
-                <p class="main-color"><a href="/contact.html">更多服务城市 &gt;&gt;</a></p>
+                <p class="main-color"><a href="/contact/8.html#service-areas">查看广州服务范围 &gt;&gt;</a></p>
             </div>
         </div>
     </div>

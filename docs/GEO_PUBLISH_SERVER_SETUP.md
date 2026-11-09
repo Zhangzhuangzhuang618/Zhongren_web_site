@@ -184,6 +184,25 @@ server {
 
 如果服务器的 PHP-FPM 使用 Unix Socket，保留服务器原有的 `fastcgi_pass`，不要强行改成 `127.0.0.1:9000`。
 
+### 规范域名跳转
+
+线上站点以 `https://www.zrbanjia.com` 为规范域名。对实际生效的 Nginx 站点配置做增量调整，保留证书、PHP-FPM、上传限制和鉴权设置：
+
+- HTTP 入口：将 `www.zrbanjia.com` 和 `zrbanjia.com` 的跳转目标统一为 `https://www.zrbanjia.com$request_uri`，保留路径和查询参数。
+- HTTPS 应用的 `server` 块在分发到 PHP 前添加下列条件。GET/HEAD 用 301；其他方法用 308 保留请求方法和正文。发布器应直接使用规范 HTTPS URL，避免跨主机重定向丢失鉴权头。
+
+```nginx
+set $zr_canonical_redirect "$host:$request_method";
+if ($zr_canonical_redirect ~ "^zrbanjia[.]com:(GET|HEAD)$") {
+    return 301 https://www.zrbanjia.com$request_uri;
+}
+if ($host = zrbanjia.com) {
+    return 308 https://www.zrbanjia.com$request_uri;
+}
+```
+
+上线前用 `nginx -t` 检查。重载后抽查裸域和 `www` 的 HTTP/HTTPS 首页、深层 URL（带查询参数），确认规范地址无循环。地区子域名不套用裸域规则；如果要接住旧 HTTPS 链接，先确保相应域名的证书有效。
+
 ## 9. 设置写入权限
 
 以下命令假定 PHP-FPM 用户为 `www-data`。先核对实际用户：

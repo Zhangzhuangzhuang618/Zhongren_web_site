@@ -81,6 +81,8 @@ if ($activeHeaderKey === 'home') {
     $seoDescription = '众人搬家公开380、469、569元车型套餐及半日式280元/立方米、精品日式320元/立方米收费与适用条件。公司统一报价、直派固定合作班组，与众人签约，班组不得擅自加价，约定范围内合同锁价。';
 } elseif ($activeHeaderKey === 'faq') {
     $seoDescription = '众人搬家FAQ解答公司直派、固定合作班组、合同签约、订单不转包、损坏处理及收费预约问题。与广东众人搬家起重吊装有限公司直接签约，服务与售后由众人统一负责。';
+} elseif (!empty($isOfficeMoving)) {
+    $seoDescription = $page_description;
 } elseif (in_array($activeHeaderKey, ['personal', 'business', 'valuables'], true)) {
     $seoDescription = ($detail['title'] ?? $currentNav['title'] ?? '搬家服务') . '：众人搬家公司统一接单、报价和调度，长期固定合作班组上门，订单不转交其他搬家公司独立承接。与广东众人搬家起重吊装有限公司签约，服务与售后按合同由众人负责。';
 } elseif ($activeHeaderKey === 'contact') {

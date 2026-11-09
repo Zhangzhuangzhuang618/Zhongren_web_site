@@ -16,7 +16,7 @@
     <div class="wow fadeInUp" data-wow-delay="0.1s">
         <div class="center">
             <div class="title-top clearfix mt45">
-                <p>联系众人<span></span></p>
+                <h1>联系众人</h1>
             </div>
         </div>
         <div class="about-container center mt20 border-radius fs-14 line-h-2">
@@ -73,7 +73,9 @@
     <div class="wow fadeInUp" data-wow-delay="0.1s">
         <div class="center">
             <div class="title-top clearfix mt45">
-                <p>服务城市<span>Service City</span></p>
+                <h2 id="service-areas" class="fs-18" style="scroll-margin-top:120px">广州搬家服务范围</h2>
+                <p>众人搬家服务覆盖天河、海珠、白云、番禺、越秀、荔湾、黄埔、花都、增城、南沙、从化。跨市搬家可提供搬出和搬入地址、楼层、电梯及物品清单，由众人确认服务安排和费用。</p>
+                <p><a href="/pricing.html">查看广州搬家套餐和里程收费 →</a></p>
             </div>
         </div>
         <div class="hot-city-box pd25 bgfff clearfix center mt20">
