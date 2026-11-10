@@ -28,6 +28,10 @@
 .qualification-card-body dl>div{display:grid;grid-template-columns:104px minmax(0,1fr);gap:8px;padding-top:8px;line-height:1.55;font-size:13px}
 .qualification-card-body dt{color:#7a7f84}
 .qualification-card-body dd{margin:0;color:#3e4247;overflow-wrap:anywhere}
+.credit-report-card{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);align-items:center;max-width:920px}
+.credit-report-cover{display:block;background:#f2f3f4;padding:16px;text-align:center;color:#b83224;font-size:14px}
+.credit-report-cover img{display:block;width:100%;max-width:228px;height:auto;margin:0 auto 10px}
+.credit-report-cover:hover span,.credit-report-cover:focus-visible span{text-decoration:underline}
 .qualification-grid-two .qualification-card-body p{margin-bottom:0}
 .qualification-checks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;list-style:none;padding:0;margin:0;counter-reset:check}
 .qualification-checks li{counter-increment:check;padding:24px;border:1px solid #e6e7e9;border-radius:6px;background:#fff}
@@ -65,6 +69,7 @@
     .qualification-section{padding-top:46px;padding-bottom:50px}
 }
 @media(max-width:640px){
+    .credit-report-card{grid-template-columns:1fr}
     .employee-insurance-layout{grid-template-columns:1fr;gap:20px}
     .employee-insurance-summary{padding:20px}
     .employee-insurance-summary dl>div{grid-template-columns:112px minmax(0,1fr);font-size:14px;gap:8px}

@@ -62,6 +62,7 @@ $managementCards = [
 ];
 ?>
 <?php include VIEW_PATH . 'layout/header.php'; ?>
+<?php $creditReportCover = htmlspecialchars($assetUrl('/upload/qualifications/zhongren-public-credit-report-2026-11-09.webp'), ENT_QUOTES, 'UTF-8'); ?>
 <link rel="stylesheet" href="<?= htmlspecialchars($assetUrl('/static/home/css/qualifications.css'), ENT_QUOTES, 'UTF-8') ?>">
 <div class="page-banner"><img src="<?= htmlspecialchars($assetUrl($banner), ENT_QUOTES, 'UTF-8') ?>" class="w100 block" alt=""></div>
 
@@ -93,6 +94,7 @@ $managementCards = [
 
     <nav class="qualification-jump center" aria-label="资质与安全保障页面目录">
         <a href="#business-licenses">主体与运输许可</a>
+        <a href="#public-credit-report">公共信用记录核验</a>
         <a href="#management-systems">管理体系认证</a>
         <a href="#registered-trademark">品牌与商标</a>
         <a href="#dispatch-assurance">签约与派工保障</a>
@@ -135,6 +137,28 @@ $managementCards = [
             </article>
             <?php endforeach; ?>
         </div>
+    </section>
+
+    <section class="qualification-section center" id="public-credit-report" aria-labelledby="public-credit-report-title">
+        <div class="qualification-heading">
+            <span>公共信用信息</span>
+            <h2 id="public-credit-report-title">一年期公共信用记录核验</h2>
+        </div>
+        <article class="qualification-card credit-report-card">
+            <a class="credit-report-cover" href="<?= $creditReportCover ?>" target="_blank" rel="noopener" aria-label="查看公共信用信息报告封面大图（新窗口）">
+                <img src="<?= $creditReportCover ?>" width="1191" height="1684" loading="lazy" alt="广东众人搬家起重吊装有限公司公共信用信息报告封面，含信用广东核验二维码">
+                <span>查看封面大图 ↗</span>
+            </a>
+            <div class="qualification-card-body">
+                <h3>公共信用信息报告（有无违法违规记录证明版）</h3>
+                <p>信用广东｜信用中国（广东）出具的报告显示：广东众人搬家起重吊装有限公司在<time datetime="2025-10-10">2025年10月10日</time>至<time datetime="2026-10-10">2026年10月10日</time>期间，于报告覆盖的<strong>44个领域内未发现违法违规记录</strong>。</p>
+                <p>点击查看封面大图，使用微信「信用广东」小程序的扫一扫功能扫描封面二维码，核验报告真实性。</p>
+                <dl>
+                    <div><dt>报告生成日期</dt><dd><time datetime="2026-11-09">2026年11月9日</time></dd></div>
+                    <div><dt>报告编号</dt><dd>RPT20261109125118573</dd></div>
+                </dl>
+            </div>
+        </article>
     </section>
 
     <section class="qualification-section qualification-section-tint" id="management-systems" aria-labelledby="management-systems-title">
